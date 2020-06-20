@@ -5,23 +5,23 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/team-organizer-backend/.bundle
+/team-organizer-api/.bundle
 
 # Ignore all logfiles and tempfiles.
-/team-organizer-backend/log/*
-/team-organizer-backend/tmp/*
+/team-organizer-api/log/*
+/team-organizer-api/tmp/*
 !/log/.keep
 !/tmp/.keep
 
 # Ignore pidfiles, but keep the directory.
-//team-organizer-backendtmp/pids/*
+/team-organizer-backend/tmp/pids/*
 !/tmp/pids/
 !/tmp/pids/.keep
 
 # Ignore uploaded files in development.
-/team-organizer-backend/storage/*
+/team-organizer-api/storage/*
 !/storage/.keep
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
-/team-organizer-backend/config/master.key
+/team-organizer-api/config/master.key
