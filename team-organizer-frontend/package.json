@@ -1,0 +1,28 @@
+{
+  "name": "team-organizer-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "rspec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukesherwood/team-organizer.git"
+  },
+  "author": "lsherwood",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukesherwood/team-organizer/issues"
+  },
+  "homepage": "https://github.com/lukesherwood/team-organizer#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.3.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.4"
+  }
+}
