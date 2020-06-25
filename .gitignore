@@ -25,3 +25,5 @@
 
 # Ignore master key for decrypting credentials and more.
 /team-organizer-api/config/master.key
+
+/team-organizer-frontend/node_modules/.bin/*
