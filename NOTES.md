@@ -1,9 +1,10 @@
 #NOTES
 
 ##Do Next
-user rails setup - devise
-User- Name, password, email?, phone number?, belongs to team/group, has many events(created), belongs to an event if signed up?
 team setup
+
+check to see if need any validations
+seed data
 create JS Class for Events?
 rest of event CRUD
 

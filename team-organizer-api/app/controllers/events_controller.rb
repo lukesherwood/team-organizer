@@ -7,7 +7,7 @@ class EventsController < ApplicationController
     def show
         @event = Event.find(params[:id])
         if @event
-            render json: @event, except: [:created_at, :updated_at]
+            render json: EventSerializer.new(@event)
         else
             render json: {message: 'Event not found'}
         end
