@@ -15,11 +15,11 @@ user3 = User.create(name: "Rose Caputo", email: "rose@email.com", phone_number: 
 soccer_team = Team.create(name: "Soccer Sport Group", description:"Wellingtons finest soccer players assemble at thursdays, Wakefeild Park, FREE")
 netball_team = Team.create(name: "Netball Sport Crew", description:"Aucklands finest netball players join and be a part of greatness")
 #EVENT
-event1 = user1.events.create(name: "Thursday Social Netball", start_time: Time.now, end_time: Time.now, description: "bring along a ball and we'll train for 30 mins then have a game", location: "ASB Arena")
-event2 = admin.events.create(name: "Tuesday Social Futsal", start_time: Time.now, end_time: Time.now, description: "Max 12 people please remember to bring $10", location: "ASB Arena")
-event3 = user2.events.create(name: "Sunday Social football", start_time: Time.now, end_time: Time.now, description: "11am make sure to come enough time to warm-up before the game", location: "Boyd Wilson")
+event1 = netball_team.events.create(name: "Thursday Social Netball", start_time: 2020-07-20 19:00:00, end_time: 2020-07-20 21:00:00, description: "bring along a ball and we'll train for 30 mins then have a game", location: "ASB Arena")
+event2 = soccer_team.events.create(name: "Tuesday Social Futsal", start_time: 2020-07-18 19:00:00, end_time: 2020-07-18 21:00:00, description: "Max 12 people please remember to bring $10", location: "ASB Arena")
+event3 = soccer_team.events.create(name: "Sunday Social football", start_time: 2020-07-22 10:00:00, end_time: 2020-07-22 12:00:00, description: "11am make sure to come enough time to warm-up before the game", location: "Boyd Wilson")
 
-#relationships
+#relationships "%Y-%m-%d %H:%M:%S"
 user1.team = soccer_team
 admin.team = soccer_team
 user3.team = netball_team
