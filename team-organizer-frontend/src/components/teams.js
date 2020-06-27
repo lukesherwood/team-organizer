@@ -11,16 +11,12 @@ class Teams {
     this.adapter
       .getTeams()
       .then(object => {
-        object.forEach((obj) => this.teams.push(obj))
+        object.forEach((obj) => this.teams.push(new Team(obj)))
+        console.log(this.teams)
       })
       .then(() => {
         this.renderTeam()
       })
-  }
-
-  createTeam () {
-    // should create JS class
-    this.renderTeam() // should pass the JS class obj
   }
 
   renderTeam (obj) {
@@ -29,7 +25,13 @@ class Teams {
       const list = document.getElementById('team-list')
       const listItem = document.createElement('li')
       listItem.className = 'event-list-item'
-      listItem.textContent = team.name
+      listItem.innerHTML = // maybe make this a function?
+        `<h2>${team.name}</h2>
+        <p>${team.description}</p>
+        <h3>Events</h3>
+        <ul class='team-events-list id=${team.name}-events-list'>
+        <li>Events go here</li>
+        </ul>`
       list.appendChild(listItem)
     })
   }
