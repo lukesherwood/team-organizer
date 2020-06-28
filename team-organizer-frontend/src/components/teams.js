@@ -21,10 +21,11 @@ class Teams {
     const list = document.getElementById('team-list')
     this.teams.forEach((team) => {
       const listItem = document.createElement('li')
-      listItem.className = 'event-list-item'
+      listItem.className = 'team-list-item'
+      listItem.id = `${team.teamNameToId()}-item`
       listItem.innerHTML = team.renderHtml()
       list.appendChild(listItem)
-      console.log(team.events)
+      team.createEvents(team.events)
     })
   }
 }
