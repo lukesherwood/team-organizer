@@ -1,7 +1,7 @@
 #NOTES
 
 ##Do Next
-setup events to be a JS class and display each under teams
+set up event listeners for click on display event?
 drop users event_id column?
 create/update forms for Team
 Create/update forms for Event
