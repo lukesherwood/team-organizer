@@ -13,28 +13,33 @@ class Event {
 
   renderEventLink () {
     const team = document.getElementById(`${this.teamName}-events-list`)
-    const eventLink = document.createElement('li')
-    eventLink.className = 'event-list-item'
+    const eventLi = document.createElement('li')
+    const eventLink = document.createElement('div')
+    eventLink.id = `event${this.id}-div`
     eventLink.innerHTML = `<a href='#' id='event${this.id}-link'>${this.name}</a>`
-    team.appendChild(eventLink)
+    eventLink.className = 'event-list-item'
+    team.appendChild(eventLi)
+    eventLi.appendChild(eventLink)
   }
 
   eventListenerAndBindings () {
     this.eventLinks = document.getElementById(`event${this.id}-link`)
     this.eventLinks.addEventListener('click', this.renderEvent.bind(this))
-    // console.log(this.eventLinks[0].innerHTML)
   }
 
   renderEvent () {
     // need to display event
-    const eventLink = document.getElementById(`event${this.id}-link`)
+    const eventLinkDiv = document.getElementById(`event${this.id}-div`)
     const eventInfoContainer = document.getElementById(`event${this.id}-info-container`) || document.createElement('div')
     eventInfoContainer.id = `event${this.id}-info-container` // this is a little wasteful, changing ID even if already set
     eventInfoContainer.innerHTML = this.eventInfoHtml()
-    eventLink.appendChild(eventInfoContainer)
+    eventLinkDiv.appendChild(eventInfoContainer)
   }
 
   eventInfoHtml () {
-    return `<p>${this.startTime} - ${this.endTime}<br>${this.description}</p>` // etc
+    return `<p>${this.startTime} - ${this.endTime} </p>
+    <p>${this.location}</p>
+    <p>${this.description}</p>
+    `
   }
 }

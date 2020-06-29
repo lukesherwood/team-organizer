@@ -1,7 +1,7 @@
 #NOTES
 
 ##Do Next
-set up event listeners for click on display event?
+finish showing all of event info
 drop users event_id column?
 create/update forms for Team
 Create/update forms for Event
