@@ -1,10 +1,10 @@
 #NOTES
 
 ##Do Next
-finish showing all of event info
-drop users event_id column?
 create/update forms for Team
 Create/update forms for Event
+drop users event_id column?
+fix times for events
 Delete functions for events, teams and user(players)
 CSS and styling
 

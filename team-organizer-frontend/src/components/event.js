@@ -28,7 +28,6 @@ class Event {
   }
 
   renderEvent () {
-    // need to display event
     const eventLinkDiv = document.getElementById(`event${this.id}-div`)
     const eventInfoContainer = document.getElementById(`event${this.id}-info-container`) || document.createElement('div')
     eventInfoContainer.id = `event${this.id}-info-container` // this is a little wasteful, changing ID even if already set
