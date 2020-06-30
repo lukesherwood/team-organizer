@@ -1,8 +1,9 @@
 #NOTES
 
 ##Do Next
-create/update forms for Team
-Create/update forms for Event
+continue building a working form for create team - Need to prevent default for submit and send data to the server. then render on DOM
+change button so only shows one form. collapse on reclick?
+Create forms for Event
 drop users event_id column?
 fix times for events
 Delete functions for events, teams and user(players)

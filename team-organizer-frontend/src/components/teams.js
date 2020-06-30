@@ -31,22 +31,27 @@ class Teams {
   }
 
   eventListenerAndBindings () {
-    this.eventLinks = document.getElementById('create-team-button')
-    this.eventLinks.addEventListener('click', this.renderCreateTeamForm.bind(this))
+    this.createTeamButton = document.getElementById('create-team-button')
+    this.createTeamButton.addEventListener('click', this.renderCreateTeamForm.bind(this))
   }
 
   renderCreateTeamForm () {
     const container = document.getElementById('create-team-form-container')
     const form = document.createElement('form')
-    form.className = 'create-team-form'
+    form.id = 'create-team-form'
     form.innerHTML = this.renderCreateHtml()
     container.appendChild(form)
+    this.createTeamSubmit = document.getElementById('create-team-form')
+    this.createTeamSubmit.addEventListener('submit', (event) => {
+      event.preventDefault()
+      console.log(event)
+    })
   }
 
   renderCreateHtml () {
     return `
     <label for="teamName">Team Name:</label><br>
     <input type="text" id="teamName" name="teamName"><br>
-    <input type="submit" value="Submit">`
+    <input type="submit" id='create-team-submit' value="Submit">` // will need to add the rest of properties as an input
   }
 }
