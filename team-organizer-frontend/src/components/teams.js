@@ -50,14 +50,17 @@ class Teams {
 
   processCreateTeamForm () {
     const teamName = document.getElementById('teamName').value // will need other inputs once full form created below
-    console.log(`You just entered '${teamName}' as your team name`)
-    this.adapter.createTeam(teamName)
+    const teamDesc = document.getElementById('teamDesc').value
+    console.log(`You just entered '${teamName}' as your team name - '${teamDesc}'`)
+    this.adapter.createTeam(teamName, teamDesc)
   }
 
   renderCreateHtml () {
     return `
     <label for="teamName">Team Name:</label><br>
     <input type="text" id="teamName" name="teamName"><br>
+    <label for="teamDesc">Team Description:</label><br>
+    <input type="text" id="teamDesc" name="teamDesc"><br>
     <input type="submit" id='create-team-submit' value="Submit">` // will need to add the rest of properties as an input
   }
 }

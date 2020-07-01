@@ -8,9 +8,10 @@ class TeamAdapter {
       .then((response) => response.json())
   }
 
-  createTeam (teamName) {
+  createTeam (teamName, teamDesc) {
     const team = {
-      name: teamName
+      name: teamName,
+      description: teamDesc
     }
     return fetch(this.baseUrl, {
       method: 'POST',
