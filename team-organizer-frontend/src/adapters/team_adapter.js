@@ -6,7 +6,6 @@ class TeamAdapter {
   getTeams () { // instance method
     return fetch(this.baseUrl)
       .then((response) => response.json())
-      // .then((object) => object.forEach((obj) => createTeam(obj)))
   }
 
   createTeam (teamName) {
