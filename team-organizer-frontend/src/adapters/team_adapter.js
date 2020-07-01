@@ -8,4 +8,17 @@ class TeamAdapter {
       .then((response) => response.json())
       // .then((object) => object.forEach((obj) => createTeam(obj)))
   }
+
+  createTeam (teamName) {
+    const team = {
+      name: teamName
+    }
+    return fetch(this.baseUrl, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(team)
+    })
+  }
 }

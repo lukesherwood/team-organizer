@@ -44,13 +44,14 @@ class Teams {
     this.createTeamSubmit = document.getElementById('create-team-form')
     this.createTeamSubmit.addEventListener('submit', (event) => {
       event.preventDefault()
-      this.processCreateTeamForm(event)
+      this.processCreateTeamForm()
     })
   }
 
-  processCreateTeamForm (e) {
-    const teamName = document.getElementById('teamName').value
+  processCreateTeamForm () {
+    const teamName = document.getElementById('teamName').value // will need other inputs once full form created below
     console.log(`You just entered '${teamName}' as your team name`)
+    this.adapter.createTeam(teamName)
   }
 
   renderCreateHtml () {

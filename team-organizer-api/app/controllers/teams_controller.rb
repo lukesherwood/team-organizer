@@ -12,4 +12,19 @@ class TeamsController < ApplicationController
             render json: {message: 'Team not found'} #this doesnt actually fire
         end
     end
+
+    def create
+        @team = Team.new(team_params)
+        if @team.save
+            render json: {mesage: "#{@team.name} created"}
+        else
+            render json: {message: 'Team not created successfully'}
+        end
+    end
+
+    private
+
+    def team_params
+        params.require(:team).permit(:name)
+    end
 end
