@@ -16,9 +16,9 @@ class TeamsController < ApplicationController
     def create
         @team = Team.new(team_params)
         if @team.save
-            render json: {mesage: "#{@team.name} created"}
+            render json: @team, status: 200
         else
-            render json: {message: 'Team not created successfully'}
+            render json: {message: 'Team not created'}
         end
     end
 

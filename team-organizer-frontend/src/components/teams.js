@@ -52,7 +52,10 @@ class Teams {
     const teamName = document.getElementById('teamName').value // will need other inputs once full form created below
     const teamDesc = document.getElementById('teamDesc').value
     console.log(`You just entered '${teamName}' as your team name - '${teamDesc}'`)
-    this.adapter.createTeam(teamName, teamDesc)
+    this.adapter.createTeam(teamName, teamDesc).then(team => {
+      this.teams.push(new Team(team))
+      this.renderTeam()
+    })
   }
 
   renderCreateHtml () {

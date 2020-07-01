@@ -1,14 +1,15 @@
 #NOTES
 
 ##Do Next
-continue building a working form for create team - add description. and require name validation, render on DOM via JS
+render new team readds all of events. FIX!
+ remove filled in forms
 change button so only shows one form. collapse on reclick?
 Create forms for Event
 drop users event_id column?
 fix times for events
 Delete functions for events, teams and user(players)
 CSS and styling
-
+validations?
 
 
 

@@ -13,12 +13,13 @@ class TeamAdapter {
       name: teamName,
       description: teamDesc
     }
+
     return fetch(this.baseUrl, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify(team)
-    })
+      body: JSON.stringify({ team })
+    }).then(res => res.json())
   }
 }
