@@ -7,6 +7,16 @@ class Team {
     this.events = teamJSON.events;
   }
 
+  renderTeam (team) {
+    const list = document.getElementById('team-list');
+    const listItem = document.createElement('li');
+    listItem.className = 'team-list-item';
+    listItem.id = `${this.teamNameToId()}-item`;
+    listItem.innerHTML = this.renderHtml();
+    list.appendChild(listItem);
+    this.createEvents(team.events);
+  }
+
   renderHtml () {
     return `<h2>${this.name}</h2>
     <p>${this.description}</p>
@@ -14,7 +24,7 @@ class Team {
     <ul class='team-events-list' id='${this.teamNameToId()}-events-list'></ul>`;
   }
 
-  createEvents (events) {
+  createEvents (events) { // this is re-adding all the events???
     events.forEach((element) => {
       this.events.push(new Event(element, this.teamNameToId()));
     });

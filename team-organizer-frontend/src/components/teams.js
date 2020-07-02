@@ -7,26 +7,20 @@ class Teams {
     this.loadTeams();
   }
 
-  loadTeams () {
+  loadTeams () { // fetches teams from database and adds each to teams array, then calls renderTeam
     this.adapter
       .getTeams()
       .then((object) => {
         object.forEach((obj) => this.teams.push(new Team(obj)));
       })
       .then(() => {
-        this.renderTeam();
+        this.renderTeams();
       });
   }
 
-  renderTeam () {
-    const list = document.getElementById('team-list');
-    this.teams.forEach((team) => { // should this be moved to team class?
-      const listItem = document.createElement('li');
-      listItem.className = 'team-list-item';
-      listItem.id = `${team.teamNameToId()}-item`;
-      listItem.innerHTML = team.renderHtml();
-      list.appendChild(listItem);
-      team.createEvents(team.events);
+  renderTeams () {
+    this.teams.forEach((team) => {
+      team.renderTeam(team)
     });
   }
 
@@ -37,24 +31,26 @@ class Teams {
 
   renderCreateTeamForm () {
     const container = document.getElementById('create-team-form-container')
-    const form = document.createElement('form')
+    const form = document.getElementById('create-team-form') || document.createElement('form')
     form.id = 'create-team-form'
     form.innerHTML = this.renderCreateHtml()
     container.appendChild(form)
-    this.createTeamSubmit = document.getElementById('create-team-form')
-    this.createTeamSubmit.addEventListener('submit', (event) => {
+    form.addEventListener('submit', (event) => {
       event.preventDefault()
       this.processCreateTeamForm()
     })
   }
 
   processCreateTeamForm () {
-    const teamName = document.getElementById('teamName').value // will need other inputs once full form created below
-    const teamDesc = document.getElementById('teamDesc').value
+    let teamName = document.getElementById('teamName').value
+    let teamDesc = document.getElementById('teamDesc').value
     console.log(`You just entered '${teamName}' as your team name - '${teamDesc}'`)
     this.adapter.createTeam(teamName, teamDesc).then(team => {
       this.teams.push(new Team(team))
-      this.renderTeam()
+      teamName = ''
+      teamDesc = ''
+      this.renderTeams()
+      this.renderCreateTeamForm()
     })
   }
 
@@ -64,6 +60,6 @@ class Teams {
     <input type="text" id="teamName" name="teamName"><br>
     <label for="teamDesc">Team Description:</label><br>
     <input type="text" id="teamDesc" name="teamDesc"><br>
-    <input type="submit" id='create-team-submit' value="Submit">` // will need to add the rest of properties as an input
+    <input type="submit" id='create-team-submit' value="Submit">`
   }
 }
