@@ -31,7 +31,7 @@ class Teams {
 
   renderCreateTeamForm () {
     const container = document.getElementById('create-team-form-container')
-    const form = document.getElementById('create-team-form') || document.createElement('form')
+    const form = document.getElementById('create-team-form') || document.createElement('form') // able to make this collapsible?
     form.id = 'create-team-form'
     form.innerHTML = this.renderCreateHtml()
     container.appendChild(form)

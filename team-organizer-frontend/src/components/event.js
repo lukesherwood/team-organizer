@@ -23,14 +23,20 @@ class Event {
   eventListenerAndBindings () {
     this.eventLinks = document.getElementById(`event${this.id}-link`)
     this.eventLinks.addEventListener('click', this.renderEvent.bind(this))
+    this.createEventButton = document.getElementById('create-event-button')
+    this.createEventButton.addEventListener('click', this.renderCreateEventForm.bind(this))
   }
 
   renderEvent () {
     const eventLinkDiv = document.getElementById(`event${this.id}-div`)
-    const eventInfoContainer = document.getElementById(`event${this.id}-info-container`) || document.createElement('div')
+    const eventInfoContainer = document.getElementById(`event${this.id}-info-container`) || document.createElement('div') // able to make this collapsible?
     eventInfoContainer.id = `event${this.id}-info-container` // this is a little wasteful, changing ID even if already set
     eventInfoContainer.innerHTML = this.eventInfoHtml()
     eventLinkDiv.appendChild(eventInfoContainer)
+  }
+
+  renderCreateEventForm () {
+    console.log('what happened?')
   }
 
   eventInfoHtml () {

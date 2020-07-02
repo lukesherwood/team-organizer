@@ -1,15 +1,14 @@
 #NOTES
 
 ##Do Next
-render new team doubles up when rerender form
-collapse create form on reclick?
+
 Create forms for Event
 drop users event_id column?
 fix times for events
 Delete functions for events, teams and user(players)
 CSS and styling
 validations?
-
+collapse create form on reclick?
 
 
 ##APP TASKS
