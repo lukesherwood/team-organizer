@@ -24,7 +24,7 @@ class Teams {
     });
   }
 
-  eventListenerAndBindings () {
+  eventListenerAndBindings () { // listening for click on create team button
     this.createTeamButton = document.getElementById('create-team-button')
     this.createTeamButton.addEventListener('click', this.renderCreateTeamForm.bind(this))
   }
@@ -46,10 +46,11 @@ class Teams {
     let teamDesc = document.getElementById('teamDesc').value
     console.log(`You just entered '${teamName}' as your team name - '${teamDesc}'`)
     this.adapter.createTeam(teamName, teamDesc).then(team => {
-      this.teams.push(new Team(team))
+      const newTeam = new Team(team)
+      this.teams.push(newTeam)
       teamName = ''
       teamDesc = ''
-      this.renderTeams()
+      newTeam.renderTeam(newTeam)
       this.renderCreateTeamForm()
     })
   }

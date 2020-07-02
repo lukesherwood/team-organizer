@@ -1,18 +1,18 @@
 class Event {
-  constructor (eventJSON, teamName) {
+  constructor (eventJSON, teamId) {
     this.id = eventJSON.id
     this.name = eventJSON.name
     this.startTime = eventJSON.start_time
     this.endTime = eventJSON.end_time
     this.description = eventJSON.description
     this.location = eventJSON.location
-    this.teamName = teamName
+    this.teamId = teamId
     this.renderEventLink()
     this.eventListenerAndBindings()
   }
 
   renderEventLink () {
-    const team = document.getElementById(`${this.teamName}-events-list`)
+    const team = document.getElementById(`team${this.teamId}-events-list`)
     const eventLi = document.createElement('li')
     const eventLink = document.createElement('div')
     eventLink.id = `event${this.id}-div`

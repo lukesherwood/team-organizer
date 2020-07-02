@@ -21,12 +21,12 @@ class Team {
     return `<h2>${this.name}</h2>
     <p>${this.description}</p>
     <h3>Events</h3>
-    <ul class='team-events-list' id='${this.teamNameToId()}-events-list'></ul>`;
+    <ul class='team-events-list' id='team${this.id}-events-list'></ul>`;
   }
 
   createEvents (events) { // this is re-adding all the events???
     events.forEach((element) => {
-      this.events.push(new Event(element, this.teamNameToId()));
+      this.events.push(new Event(element, this.id)); // can we avoid passing this in by event knowing what its team id is?
     });
   }
 
