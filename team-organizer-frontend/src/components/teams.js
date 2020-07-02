@@ -20,7 +20,7 @@ class Teams {
 
   renderTeams () {
     this.teams.forEach((team) => {
-      team.renderTeam(team)
+      team.renderTeam()
     });
   }
 
@@ -50,8 +50,7 @@ class Teams {
       this.teams.push(newTeam)
       teamName = ''
       teamDesc = ''
-      newTeam.renderTeam(newTeam)
-      this.renderCreateTeamForm()
+      newTeam.renderTeam()
     })
   }
 

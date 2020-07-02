@@ -1,7 +1,7 @@
 #NOTES
 
 ##Do Next
-render new team readds all of events. FIX!
+render new team doubles up?
 collapse create form on reclick?
 Create forms for Event
 drop users event_id column?

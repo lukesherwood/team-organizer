@@ -8,7 +8,7 @@ class TeamAdapter {
       .then((response) => response.json())
   }
 
-  createTeam (teamName, teamDesc) {
+  createTeam (teamName, teamDesc) { // posting new team to the server
     const team = {
       name: teamName,
       description: teamDesc

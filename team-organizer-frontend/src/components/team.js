@@ -8,14 +8,14 @@ class Team {
     this.events = []
   };
 
-  renderTeam (team) {
+  renderTeam () {
     const list = document.getElementById('team-list');
     const listItem = document.createElement('li');
     listItem.className = 'team-list-item';
     listItem.id = `team${this.id}-item`;
     listItem.innerHTML = this.renderHtml();
     list.appendChild(listItem);
-    this.createEvents(team.rawEvents);
+    this.createEvents(this.rawEvents);
   }
 
   renderHtml () {
@@ -27,7 +27,7 @@ class Team {
 
   createEvents (events) { // this is re-adding all the events???
     events.forEach((event) => {
-      this.events.push(new Event(event));
+      this.events.push(new Event(event)); // can we avoid passing this in by event knowing what its team id is?
     });
   }
 }
