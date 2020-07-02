@@ -3,7 +3,7 @@ class TeamAdapter {
     this.baseUrl = 'http://localhost:3000/teams'
   }
 
-  getTeams () { // instance method
+  getTeams () {
     return fetch(this.baseUrl)
       .then((response) => response.json())
   }

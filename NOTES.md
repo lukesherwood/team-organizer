@@ -2,7 +2,6 @@
 
 ##Do Next
 render new team readds all of events. FIX!
- this.renderTeam(team) not reading into team class?
 collapse create form on reclick?
 Create forms for Event
 drop users event_id column?

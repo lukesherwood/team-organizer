@@ -4,17 +4,18 @@ class Team {
     this.id = teamJSON.id;
     this.name = teamJSON.name;
     this.description = teamJSON.description;
-    this.events = teamJSON.events;
-  }
+    this.rawEvents = teamJSON.events;
+    this.events = []
+  };
 
   renderTeam (team) {
     const list = document.getElementById('team-list');
     const listItem = document.createElement('li');
     listItem.className = 'team-list-item';
-    listItem.id = `${this.teamNameToId()}-item`;
+    listItem.id = `team${this.id}-item`;
     listItem.innerHTML = this.renderHtml();
     list.appendChild(listItem);
-    this.createEvents(team.events);
+    this.createEvents(team.rawEvents);
   }
 
   renderHtml () {
@@ -25,14 +26,8 @@ class Team {
   }
 
   createEvents (events) { // this is re-adding all the events???
-    events.forEach((element) => {
-      this.events.push(new Event(element, this.id)); // can we avoid passing this in by event knowing what its team id is?
+    events.forEach((event) => {
+      this.events.push(new Event(event));
     });
-  }
-
-  teamNameToId () {
-    return this.name
-      .toLowerCase()
-      .replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
   }
 }
