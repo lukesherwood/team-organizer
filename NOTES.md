@@ -1,7 +1,7 @@
 #NOTES
 
 ##Do Next
-render new team doubles up?
+render new team doubles up when rerender form
 collapse create form on reclick?
 Create forms for Event
 drop users event_id column?

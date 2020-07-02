@@ -42,14 +42,13 @@ class Teams {
   }
 
   processCreateTeamForm () {
-    let teamName = document.getElementById('teamName').value
-    let teamDesc = document.getElementById('teamDesc').value
-    console.log(`You just entered '${teamName}' as your team name - '${teamDesc}'`)
-    this.adapter.createTeam(teamName, teamDesc).then(team => {
+    const teamName = document.getElementById('teamName')
+    const teamDesc = document.getElementById('teamDesc')
+    this.adapter.createTeam(teamName.value, teamDesc.value).then(team => {
       const newTeam = new Team(team)
       this.teams.push(newTeam)
-      teamName = ''
-      teamDesc = ''
+      teamName.value = ''
+      teamDesc.value = ''
       newTeam.renderTeam()
     })
   }
