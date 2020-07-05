@@ -7,6 +7,7 @@ class Event {
     this.description = eventJSON.description
     this.location = eventJSON.location
     this.team = eventJSON.team
+    this.adapter = new TeamAdapter();
     this.renderEventLink()
     this.eventListenerAndBindings()
   }
@@ -56,6 +57,10 @@ class Event {
     console.log(`created event ${eventName} - ${eventDesc} - ${location} - ${startTime} - ${endTime}`) // works but need to actually process the data and create a new event
     this.adapter.createEvent(eventName.value, eventDesc.value, location.value, startTime.value, endTime.value).then(event => {
       console.log(event)
+      // const newEvent = new Event(event)
+      eventName.value = ''
+      eventDesc.value = ''
+      // newEvent.renderTeam()
     })
   }
 

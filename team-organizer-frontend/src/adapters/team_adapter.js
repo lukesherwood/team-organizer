@@ -1,7 +1,7 @@
 class TeamAdapter {
   constructor () {
     this.baseUrl = 'http://localhost:3000/teams'
-    this.eventsUrl = 'http://localhost:3000/events'
+    this.eventsUrl = 'http://localhost:3000/events' // should create own adaptor for events?
   }
 
   getTeams () {
