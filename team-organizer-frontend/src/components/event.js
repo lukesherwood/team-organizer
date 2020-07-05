@@ -48,9 +48,15 @@ class Event {
   }
 
   processCreateEventForm () {
-    const eventName = document.getElementById('eventName').value
-    const eventDesc = document.getElementById('eventDesc').value
-    console.log(`created event ${eventName} - ${eventDesc}`)
+    const eventName = document.getElementById('eventName')
+    const eventDesc = document.getElementById('eventDesc')
+    const location = document.getElementById('location')
+    const startTime = document.getElementById('startTime')
+    const endTime = document.getElementById('endTime')
+    console.log(`created event ${eventName} - ${eventDesc} - ${location} - ${startTime} - ${endTime}`) // works but need to actually process the data and create a new event
+    this.adapter.createEvent(eventName.value, eventDesc.value, location.value, startTime.value, endTime.value).then(event => {
+      console.log(event)
+    })
   }
 
   eventInfoHtml () {
