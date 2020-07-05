@@ -36,7 +36,21 @@ class Event {
   }
 
   renderCreateEventForm () {
-    console.log('what happened?')
+    const container = document.getElementById('create-event-form-container')
+    const form = document.getElementById('create-event-form') || document.createElement('form') // able to make this collapsible?
+    form.id = 'create-event-form'
+    form.innerHTML = this.renderCreateHtml()
+    container.appendChild(form)
+    form.addEventListener('submit', (event) => {
+      event.preventDefault()
+      this.processCreateEventForm()
+    })
+  }
+
+  processCreateEventForm () {
+    const eventName = document.getElementById('eventName').value
+    const eventDesc = document.getElementById('eventDesc').value
+    console.log(`created event ${eventName} - ${eventDesc}`)
   }
 
   eventInfoHtml () {
@@ -44,5 +58,20 @@ class Event {
     <p>${this.location}</p>
     <p>${this.description}</p>
     `
+  }
+
+  renderCreateHtml () {
+    return `
+    <label for="eventName">Event Name:</label><br>
+    <input type="text" id="eventName" name="eventName"><br>
+    <label for="eventDesc">Event Description:</label><br>
+    <input type="text" id="eventDesc" name="eventDesc"><br>
+    <label for="location">Location:</label><br>
+    <input type="text" id="location" name="location"><br>
+    <label for="startTime">Start Time:</label><br>
+    <input type="datetime" id="startTime" name="startTime"><br>
+    <label for="endTime">End Time:</label><br>
+    <input type="datetime" id="endTime" name="endTime"><br>
+    <input type="submit" id='create-event-submit' value="Submit">` // will need selector for team/creator?
   }
 }

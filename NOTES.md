@@ -1,10 +1,11 @@
 #NOTES
 
 ##Do Next
-
-Create forms for Event
+click create event button renders form
+form can submit post call to server
+form can render new event on the dom
 drop users event_id column?
-fix times for events
+fix times display for events
 Delete functions for events, teams and user(players)
 CSS and styling
 validations?

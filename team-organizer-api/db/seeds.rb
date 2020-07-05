@@ -16,12 +16,12 @@ player1 = User.create(name: "Matt Dingus", email: "matt@email.com", phone_number
 player2 = User.create(name: "Fella Ratio", email: "fella@email.com", phone_number: "021234522099")
 player3 = User.create(name: "Freddy Mercurial", email: "fred@email.com", phone_number: "021233932099")
 #TEAM
-soccer_team = Team.create(name: "Soccer Sport Group", description:"Wellingtons finest soccer players assemble at thursdays, Wakefeild Park, FREE")
+soccer_team = Team.create(name: "Soccer Sport Group", description:"Wellingtons finest soccer players assemble at thursdays, Wakefield Park, FREE")
 netball_team = Team.create(name: "Netball Sport Crew", description:"Aucklands finest netball players join and be a part of greatness")
 #EVENT
-event1 = netball_team.events.create(name: "Thursday Social Netball", start_time: "2020-07-20 19:00:00", end_time: "2020-07-20 21:00:00", description: "bring along a ball and we'll train for 30 mins then have a game", location: "ASB Arena", creator_id: user3.id)
-event2 = soccer_team.events.create(name: "Tuesday Social Futsal", start_time: "2020-07-18 19:00:00", end_time: "2020-07-18 21:00:00", description: "Max 12 people please remember to bring $10", location: "ASB Arena", creator_id: admin.id)
-event3 = soccer_team.events.create(name: "Sunday Social football", start_time: "2020-07-22 10:00:00", end_time: "2020-07-22 12:00:00", description: "11am make sure to come enough time to warm-up before the game", location: "Boyd Wilson", creator_id: user1.id)
+event1 = netball_team.events.create(name: "Thursday Social Netball", start_time: "2020-08-02 18:03:34.0177401 +1200", end_time: "2020-08-02 20:03:34.0177401 +1200", description: "bring along a ball and we'll train for 30 mins then have a game", location: "ASB Arena", creator_id: user3.id)
+event2 = soccer_team.events.create(name: "Tuesday Social Futsal", start_time: "2020-08-04 20:03:34.0177401 +1200", end_time: "2020-08-04 22:03:34.0177401 +1200", description: "Max 12 people please remember to bring $10", location: "ASB Arena", creator_id: admin.id)
+event3 = soccer_team.events.create(name: "Sunday Social football", start_time: "2020-08-06 11:03:34.0177401 +1200", end_time: "2020-08-06 12:03:34.0177401 +1200", description: "11am make sure to come enough time to warm-up before the game", location: "Boyd Wilson", creator_id: user1.id)
 
 #relationships "%Y-%m-%d %H:%M:%S"
 user1.team = soccer_team
