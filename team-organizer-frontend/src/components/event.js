@@ -24,8 +24,12 @@ class Event {
   eventListenerAndBindings () {
     this.eventLinks = document.getElementById(`event${this.id}-link`)
     this.eventLinks.addEventListener('click', this.renderEvent.bind(this))
-    this.createEventButton = document.getElementById('create-event-button')
-    this.createEventButton.addEventListener('click', this.renderCreateEventForm.bind(this))
+    const createEventButton = document.getElementById('create-event-button')
+    createEventButton.addEventListener('click', (event) => {
+      console.log('clicked') //gettubg clicked 24 times?
+      event.preventDefault()
+      this.renderCreateEventForm.bind(this)
+    })
   }
 
   renderEvent () {
@@ -37,6 +41,7 @@ class Event {
   }
 
   renderCreateEventForm () {
+    console.log('fired')
     const container = document.getElementById('create-event-form-container')
     const form = document.getElementById('create-event-form') || document.createElement('form') // able to make this collapsible?
     form.id = 'create-event-form'
@@ -44,7 +49,8 @@ class Event {
     container.appendChild(form)
     form.addEventListener('submit', (event) => {
       event.preventDefault()
-      this.processCreateEventForm()
+      console.log('how many')
+      // this.processCreateEventForm()
     })
   }
 
@@ -63,7 +69,7 @@ class Event {
       startTime.value = ''
       endTime.value = ''
       teamId.value = ''
-      // newEvent.renderEvent()
+      newEvent.renderEvent()
     })
   }
 
@@ -86,9 +92,11 @@ class Event {
     <input type="datetime" id="startTime" name="startTime"><br>
     <label for="endTime">End Time:</label><br>
     <input type="datetime" id="endTime" name="endTime"><br>
-    <select id="teamId" name="teamID"><br>
-    <option value="1">ID: 1</option><br>
-    <option value="2">ID: 2</option><br>
-    <input type="submit" id='create-event-submit' value="Submit">` // will need selector for team/creator?
+    <label for="teamId">Select Team:</label><br>
+    <select id="teamId" name="teamId">
+    <option value="1">ID: 1</option>
+    <option value="2">ID: 2</option>
+    </select><br>
+    <input type="submit" id='create-event-submit' value="Submit">` // will need selector for creator? need to make the selector readable ie names
   }
 }
