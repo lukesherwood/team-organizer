@@ -56,11 +56,14 @@ class Event {
     const endTime = document.getElementById('endTime')
     const teamId = document.getElementById('teamId')
     this.adapter.createEvent(eventName.value, eventDesc.value, location.value, startTime.value, endTime.value, teamId.value).then(event => {
-      console.log(event)
-      // const newEvent = new Event(event)
+      const newEvent = new Event(event)
       eventName.value = ''
       eventDesc.value = ''
-      // newEvent.renderTeam()
+      location.value = ''
+      startTime.value = ''
+      endTime.value = ''
+      teamId.value = ''
+      // newEvent.renderEvent()
     })
   }
 

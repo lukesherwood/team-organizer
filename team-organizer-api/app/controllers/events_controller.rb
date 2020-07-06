@@ -15,10 +15,12 @@ class EventsController < ApplicationController
 
     def create
         @event = Event.new(event_params)
+        @event.team = Team.find(event_params[:team_id])
+        @event.creator = User.last ## this will need to change when users implemented or not
         if @event.save
             render json: @event, status: 200
         else
-            render json: {message: 'Event not created'}
+            raise @event.errors.inspect #render json: {message: 'Event not created'}
         end
     end
 

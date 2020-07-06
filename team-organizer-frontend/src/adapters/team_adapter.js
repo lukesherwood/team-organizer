@@ -24,16 +24,15 @@ class TeamAdapter {
     }).then(res => res.json())
   }
 
-  createEvent (eventName, eventDesc, location, startTime, endTime, teamId) {
+  createEvent (eventName, eventDesc, location, startTime, endTime, teamId) { // why is this posting 3 times?
     const event = {
       name: eventName,
       description: eventDesc,
       location: location,
       start_time: startTime,
-      end_time: endTime, // need team_id here??
+      end_time: endTime,
       team_id: teamId
     }
-    console.log(event)
     return fetch(this.eventsUrl, {
       method: 'POST',
       headers: {
