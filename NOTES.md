@@ -1,7 +1,6 @@
 #NOTES
 
 ##Do Next
-click create event button renders form
 form can submit post call to server
 form can render new event on the dom
 drop users event_id column?

@@ -24,15 +24,16 @@ class TeamAdapter {
     }).then(res => res.json())
   }
 
-  createEvent (eventName, startTime, endTime, eventDesc, location) {
+  createEvent (eventName, eventDesc, location, startTime, endTime, teamId) {
     const event = {
       name: eventName,
       description: eventDesc,
       location: location,
       start_time: startTime,
-      end_time: endTime
+      end_time: endTime, // need team_id here??
+      team_id: teamId
     }
-
+    console.log(event)
     return fetch(this.eventsUrl, {
       method: 'POST',
       headers: {

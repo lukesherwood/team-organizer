@@ -25,7 +25,7 @@ class EventsController < ApplicationController
     private
 
     def event_params
-        params.require(:event).permit(:name, :description, :location, :start_time, :end_time) #might need to add creator id and team id here?
+        params.require(:event).permit(:name, :description, :location, :start_time, :end_time, :team_id) #might need to add creator id and team id here?
     end
 end
 

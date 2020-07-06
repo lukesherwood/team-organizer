@@ -54,8 +54,8 @@ class Event {
     const location = document.getElementById('location')
     const startTime = document.getElementById('startTime')
     const endTime = document.getElementById('endTime')
-    console.log(`created event ${eventName} - ${eventDesc} - ${location} - ${startTime} - ${endTime}`) // works but need to actually process the data and create a new event
-    this.adapter.createEvent(eventName.value, eventDesc.value, location.value, startTime.value, endTime.value).then(event => {
+    const teamId = document.getElementById('teamId')
+    this.adapter.createEvent(eventName.value, eventDesc.value, location.value, startTime.value, endTime.value, teamId.value).then(event => {
       console.log(event)
       // const newEvent = new Event(event)
       eventName.value = ''
@@ -83,6 +83,9 @@ class Event {
     <input type="datetime" id="startTime" name="startTime"><br>
     <label for="endTime">End Time:</label><br>
     <input type="datetime" id="endTime" name="endTime"><br>
+    <select id="teamId" name="teamID"><br>
+    <option value="1">ID: 1</option><br>
+    <option value="2">ID: 2</option><br>
     <input type="submit" id='create-event-submit' value="Submit">` // will need selector for team/creator?
   }
 }
