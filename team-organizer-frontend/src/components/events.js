@@ -7,7 +7,12 @@ class Events {
   eventListenerAndBindings () {
     document.getElementById('create-event-button').addEventListener('click', (event) => {
       event.preventDefault()
-      this.renderCreateEventForm()
+      if (this.createForm) {
+        this.createForm.innerHTML = ''
+        this.createForm = false
+      } else {
+        this.renderCreateEventForm()
+      }
     })
   }
 
