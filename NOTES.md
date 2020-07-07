@@ -7,7 +7,6 @@ fix times display for events
 Delete functions for events, teams and user(players)
 CSS and styling
 validations?
-collapse create form on reclick?
 
 
 ##APP TASKS
