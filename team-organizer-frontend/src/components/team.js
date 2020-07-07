@@ -25,7 +25,7 @@ class Team {
     <ul class='team-events-list' id='team${this.id}-events-list'></ul>`;
   }
 
-  createEvents (events) { 
+  createEvents (events) {
     events.forEach((event) => {
       this.events.push(new Event(event));
     });
