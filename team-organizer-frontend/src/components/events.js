@@ -5,20 +5,18 @@ class Events {
   }
 
   eventListenerAndBindings () {
-    document.getElementById('create-event-button').addEventListener('click', this.handleClick.bind(this))
-  }
-
-  handleClick (e) {
-    e.preventDefault()
-    this.renderCreateEventForm()
+    document.getElementById('create-event-button').addEventListener('click', (event) => {
+      event.preventDefault()
+      this.renderCreateEventForm()
+    })
   }
 
   renderCreateEventForm () {
     const container = document.getElementById('create-event-form-container')
-    const form = document.getElementById('create-event-form') // able to make this collapsible?
-    form.innerHTML = this.renderCreateHtml()
-    container.appendChild(form)
-    form.addEventListener('submit', (event) => {
+    this.createForm = document.getElementById('create-event-form') // able to make this collapsible? innerhtml = '', toggle function
+    this.createForm.innerHTML = this.renderCreateHtml()
+    container.appendChild(this.createForm)
+    this.createForm.addEventListener('submit', (event) => {
       event.preventDefault()
       this.processCreateEventForm()
     })
@@ -38,7 +36,7 @@ class Events {
       location.value = ''
       startTime.value = ''
       endTime.value = ''
-      teamId.value = ''
+      teamId.value = '' // can we minimize the create form now too?
       newEvent.renderEvent()
     })
   }

@@ -1,8 +1,6 @@
 #NOTES
 
 ##Do Next
-posting 3 times instead of once?? -- something to do with the same issue with teams process
-form can render new event on the dom with JS
 drop users event_id column?
 fix times display for events
 Delete functions for events, teams and user(players)
