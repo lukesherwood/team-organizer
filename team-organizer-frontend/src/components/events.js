@@ -62,6 +62,7 @@ class Events {
     <select id="teamId" name="teamId">
     <option value="1">ID: 1</option>
     <option value="2">ID: 2</option>
+    <option value="3">ID: 3</option>
     </select><br>
     <input type="submit" id='create-event-submit' value="Submit">` // will need selector for creator? need to make the selector readable ie names
   }
