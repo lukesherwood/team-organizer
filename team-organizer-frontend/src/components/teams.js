@@ -26,8 +26,7 @@ class Teams {
 
   eventListenerAndBindings () { // listening for click on create team button
     this.createTeamButton = document.getElementById('create-team-button')
-    this.createTeamButton.addEventListener('click', (event) => {
-      event.preventDefault()
+    this.createTeamButton.addEventListener('click', () => {
       if (this.createTeamForm) {
         this.createTeamForm.innerHTML = ''
         this.createTeamForm = false
@@ -39,7 +38,7 @@ class Teams {
 
   renderCreateTeamForm () {
     const container = document.getElementById('create-team-form-container')
-    this.createTeamForm = document.getElementById('create-team-form') || document.createElement('form') // able to make this collapsible?
+    this.createTeamForm = document.getElementById('create-team-form') || document.createElement('form')
     this.createTeamForm.id = 'create-team-form'
     this.createTeamForm.innerHTML = this.renderCreateHtml()
     container.appendChild(this.createTeamForm)
