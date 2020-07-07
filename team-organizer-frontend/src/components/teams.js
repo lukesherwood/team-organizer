@@ -26,16 +26,24 @@ class Teams {
 
   eventListenerAndBindings () { // listening for click on create team button
     this.createTeamButton = document.getElementById('create-team-button')
-    this.createTeamButton.addEventListener('click', this.renderCreateTeamForm.bind(this))
+    this.createTeamButton.addEventListener('click', (event) => {
+      event.preventDefault()
+      if (this.createTeamForm) {
+        this.createTeamForm.innerHTML = ''
+        this.createTeamForm = false
+      } else {
+        this.renderCreateTeamForm()
+      }
+    })
   }
 
   renderCreateTeamForm () {
     const container = document.getElementById('create-team-form-container')
-    const form = document.getElementById('create-team-form') || document.createElement('form') // able to make this collapsible?
-    form.id = 'create-team-form'
-    form.innerHTML = this.renderCreateHtml()
-    container.appendChild(form)
-    form.addEventListener('submit', (event) => {
+    this.createTeamForm = document.getElementById('create-team-form') || document.createElement('form') // able to make this collapsible?
+    this.createTeamForm.id = 'create-team-form'
+    this.createTeamForm.innerHTML = this.renderCreateHtml()
+    container.appendChild(this.createTeamForm)
+    this.createTeamForm.addEventListener('submit', (event) => {
       event.preventDefault()
       this.processCreateTeamForm()
     })
