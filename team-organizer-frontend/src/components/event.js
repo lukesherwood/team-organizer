@@ -22,15 +22,22 @@ class Event {
 
   eventListenerAndBindings () {
     const eventLinks = document.getElementById(`event${this.id}-link`)
-    eventLinks.addEventListener('click', this.renderEvent.bind(this))
+    eventLinks.addEventListener('click', () => {
+      if (this.eventInfoContainer) {
+        this.eventInfoContainer.innerHTML = ''
+        this.eventInfoContainer = false
+      } else {
+        this.renderEvent()
+      }
+    })
   }
 
   renderEvent () {
     const eventLinkDiv = document.getElementById(`event${this.id}-div`)
-    const eventInfoContainer = document.getElementById(`event${this.id}-info-container`) || document.createElement('div') // able to make this collapsible?
-    eventInfoContainer.id = `event${this.id}-info-container` // this is a little wasteful, changing ID even if already set
-    eventInfoContainer.innerHTML = this.eventInfoHtml()
-    eventLinkDiv.appendChild(eventInfoContainer)
+    this.eventInfoContainer = document.getElementById(`event${this.id}-info-container`) || document.createElement('div') // able to make this collapsible?
+    this.eventInfoContainer.id = `event${this.id}-info-container` // this is a little wasteful, changing ID even if already set
+    this.eventInfoContainer.innerHTML = this.eventInfoHtml()
+    eventLinkDiv.appendChild(this.eventInfoContainer)
   }
 
   eventInfoHtml () {

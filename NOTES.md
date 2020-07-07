@@ -1,6 +1,7 @@
 #NOTES
 
 ##Do Next
+tidy up database
 drop users event_id column?
 fix times display for events
 Delete functions for events, teams and user(players)
