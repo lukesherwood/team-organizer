@@ -1,7 +1,7 @@
 #NOTES
 
 ##Do Next
-fix event form so that it can get the team names
+render players of event
 user can sign up for an event - need button to render form with name.
 .catch errors for fetch requests
 drop users event_id column?

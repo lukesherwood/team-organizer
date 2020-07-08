@@ -7,6 +7,7 @@ class Event {
     this.description = eventJSON.description
     this.location = eventJSON.location
     this.team = eventJSON.team
+    this.players = eventJSON.players
     this.renderEventLink()
     this.eventListenerAndBindings()
   }
@@ -38,7 +39,18 @@ class Event {
     this.eventInfoContainer.id = `event${this.id}-info-container` // this is a little wasteful, changing ID even if already set
     this.eventInfoContainer.innerHTML = this.eventInfoHtml()
     eventLinkDiv.appendChild(this.eventInfoContainer)
+    this.renderPlayers()
   }
+
+  renderPlayers () {
+    this.eventInfoContainer.innerHTML += `<h4>Players</h4><ul id="event-${this.id}-players-list-container"></ul>`
+    this.playersContainer = document.getElementById(`event-${this.id}-players-list-container`)
+    this.players.forEach(player => {
+      const playerHtml = `<li>${player.name}</li>`
+      this.playersContainer.innerHTML += playerHtml
+    })
+  }
+
 
   eventInfoHtml () {
     return `<p>${this.startTime} - ${this.endTime} </p>

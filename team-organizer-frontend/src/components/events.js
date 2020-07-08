@@ -1,7 +1,7 @@
 class Events {
   constructor () {
     this.adapter = new EventAdapter()
-    this.TeamAdapter = new TeamAdapter()
+    this.teamAdapter = new TeamAdapter()
     this.eventListenerAndBindings()
   }
 
@@ -20,7 +20,6 @@ class Events {
   renderCreateEventForm () {
     this.createForm = document.getElementById('create-event-form')
     this.createForm.innerHTML = this.renderCreateHtml()
-    // need to add into the above form the options - so will need to fetch an array from database and iterate thru adding name and ID to <option value="1">Team: 1</option>
     this.addTeamOptionsToForm()
     this.createForm.addEventListener('submit', (event) => {
       event.preventDefault()
@@ -30,7 +29,7 @@ class Events {
 
   addTeamOptionsToForm () {
     const selectionInput = document.getElementById('teamId')
-    this.TeamAdapter.getTeams().then((teams) => {
+    this.teamAdapter.getTeams().then((teams) => {
       teams.forEach(team => {
         const option = `<option value=${team.id}>${team.name}</option>`
         selectionInput.innerHTML += option
@@ -72,8 +71,7 @@ class Events {
     <input type="datetime" id="endTime" name="endTime"><br>
     <label for="teamId">Select Team:</label><br>
     <select id="teamId" name="teamId">
-    
     </select><br>
-    <input type="submit" id='create-event-submit' value="Submit">` // will need selector for creator? need to make the selector readable ie names
+    <input type="submit" id='create-event-submit' value="Submit">` 
   }
 }
