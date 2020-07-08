@@ -5,7 +5,7 @@ class Events {
   }
 
   eventListenerAndBindings () {
-    document.getElementById('create-event-button').addEventListener('click', (event) => { // ## BROKEN
+    document.getElementById('create-event-button').addEventListener('click', (event) => {
       event.preventDefault()
       if (this.createForm) { // collapses form if already open
         this.createForm.innerHTML = ''
@@ -17,10 +17,8 @@ class Events {
   }
 
   renderCreateEventForm () {
-    const container = document.getElementById('create-event-form-container')
     this.createForm = document.getElementById('create-event-form')
     this.createForm.innerHTML = this.renderCreateHtml()
-    container.appendChild(this.createForm)
     this.createForm.addEventListener('submit', (event) => {
       event.preventDefault()
       this.processCreateEventForm()
@@ -44,7 +42,7 @@ class Events {
       teamId.value = ''
       newEvent.renderEvent()
     })
-    document.getElementById('create-event-button').click() // collapses form ## broken
+    document.getElementById('create-event-button').click() // collapses form
   }
 
   renderCreateHtml () {

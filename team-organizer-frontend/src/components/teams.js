@@ -37,11 +37,8 @@ class Teams {
   }
 
   renderCreateTeamForm () {
-    const container = document.getElementById('create-team-form-container')
-    this.createTeamForm = document.getElementById('create-team-form') || document.createElement('form') // can i remove this now?
-    this.createTeamForm.id = 'create-team-form'
+    this.createTeamForm = document.getElementById('create-team-form')
     this.createTeamForm.innerHTML = this.renderCreateHtml()
-    container.appendChild(this.createTeamForm)
     this.createTeamForm.addEventListener('submit', (event) => {
       event.preventDefault()
       this.processCreateTeamForm()
