@@ -1,7 +1,6 @@
 #NOTES
 
 ##Do Next
-render players of event
 user can sign up for an event - need button to render form with name.
 .catch errors for fetch requests
 drop users event_id column?

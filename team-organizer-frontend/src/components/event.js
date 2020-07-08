@@ -33,24 +33,36 @@ class Event {
     })
   }
 
+  addEventListenerToAddPlayer () {
+    const addPlayerButtons = document.querySelectorAll('.add-player-button')
+    for (const button of addPlayerButtons) {
+      button.addEventListener('click', () => {
+        event.preventDefault()
+        console.log('player added')
+      })
+    }
+  }
+
   renderEvent () {
     const eventLinkDiv = document.getElementById(`event${this.id}-div`)
-    this.eventInfoContainer = document.getElementById(`event${this.id}-info-container`) || document.createElement('div') // able to make this collapsible?
-    this.eventInfoContainer.id = `event${this.id}-info-container` // this is a little wasteful, changing ID even if already set
+    this.eventInfoContainer = document.createElement('div')
+    this.eventInfoContainer.id = `event${this.id}-info-container`
     this.eventInfoContainer.innerHTML = this.eventInfoHtml()
     eventLinkDiv.appendChild(this.eventInfoContainer)
     this.renderPlayers()
+    this.addEventListenerToAddPlayer()
   }
 
   renderPlayers () {
-    this.eventInfoContainer.innerHTML += `<h4>Players</h4><ul id="event-${this.id}-players-list-container"></ul>`
+    this.eventInfoContainer.innerHTML += `<h4>Players</h4>
+    <ul id="event-${this.id}-players-list-container"></ul><br>
+    <button class='add-player-button' id="event-${this.id}-add-player-button">Sign up for this event</button><br>`
     this.playersContainer = document.getElementById(`event-${this.id}-players-list-container`)
     this.players.forEach(player => {
       const playerHtml = `<li>${player.name}</li>`
       this.playersContainer.innerHTML += playerHtml
     })
   }
-
 
   eventInfoHtml () {
     return `<p>${this.startTime} - ${this.endTime} </p>
