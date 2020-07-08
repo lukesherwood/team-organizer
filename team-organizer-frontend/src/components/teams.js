@@ -27,7 +27,7 @@ class Teams {
   eventListenerAndBindings () { // listening for click on create team button
     this.createTeamButton = document.getElementById('create-team-button')
     this.createTeamButton.addEventListener('click', () => {
-      if (this.createTeamForm) {
+      if (this.createTeamForm) { // collapses form if already open
         this.createTeamForm.innerHTML = ''
         this.createTeamForm = false
       } else {
@@ -38,7 +38,7 @@ class Teams {
 
   renderCreateTeamForm () {
     const container = document.getElementById('create-team-form-container')
-    this.createTeamForm = document.getElementById('create-team-form') || document.createElement('form')
+    this.createTeamForm = document.getElementById('create-team-form') || document.createElement('form') // can i remove this now?
     this.createTeamForm.id = 'create-team-form'
     this.createTeamForm.innerHTML = this.renderCreateHtml()
     container.appendChild(this.createTeamForm)
@@ -58,7 +58,7 @@ class Teams {
       teamDesc.value = ''
       newTeam.renderTeam()
     })
-    document.getElementById('create-team-button').click()
+    document.getElementById('create-team-button').click() // collapses form
   }
 
   renderCreateHtml () {

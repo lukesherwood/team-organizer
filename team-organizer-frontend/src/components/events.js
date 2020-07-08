@@ -7,7 +7,7 @@ class Events {
   eventListenerAndBindings () {
     document.getElementById('create-event-button').addEventListener('click', (event) => {
       event.preventDefault()
-      if (this.createForm) {
+      if (this.createForm) { // collapses form if already open
         this.createForm.innerHTML = ''
         this.createForm = false
       } else {
@@ -44,7 +44,7 @@ class Events {
       teamId.value = ''
       newEvent.renderEvent()
     })
-    document.getElementById('create-event-button').click()
+    document.getElementById('create-event-button').click() // collapses form
   }
 
   renderCreateHtml () {

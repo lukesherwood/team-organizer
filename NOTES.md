@@ -1,11 +1,14 @@
 #NOTES
 
 ##Do Next
-form closes after submit
+create event button for each team.
+user can sign up for an event - need button to render form with name.
+.catch errors for fetch requests
 drop users event_id column?
 fix times display for events
 Delete functions for events, teams and user(players)
 CSS and styling
+buttons say click to close when open?
 validations?
 
 

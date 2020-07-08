@@ -1,9 +1,10 @@
 class EventAdapter {
   constructor () {
-    this.baseUrl = 'http://localhost:3000/events'
+    this.baseUrl = `http://localhost:3000/teams/`
   }
 
   createEvent (eventName, eventDesc, location, startTime, endTime, teamId) {
+    this.baseUrl += `${teamId}/events`
     const event = {
       name: eventName,
       description: eventDesc,
@@ -19,5 +20,8 @@ class EventAdapter {
       },
       body: JSON.stringify({ event })
     }).then(res => res.json())
+      .catch(error => {
+        return alert(error.message)
+      })
   }
 }
