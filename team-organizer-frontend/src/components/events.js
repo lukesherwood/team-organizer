@@ -5,7 +5,7 @@ class Events {
   }
 
   eventListenerAndBindings () {
-    document.getElementById('create-event-button').addEventListener('click', (event) => {
+    document.getElementById('team-1-create-event-button').addEventListener('click', (event) => { // ## BROKEN
       event.preventDefault()
       if (this.createForm) { // collapses form if already open
         this.createForm.innerHTML = ''
@@ -44,7 +44,7 @@ class Events {
       teamId.value = ''
       newEvent.renderEvent()
     })
-    document.getElementById('create-event-button').click() // collapses form
+    document.getElementById('team-1-create-event-button').click() // collapses form ## broken
   }
 
   renderCreateHtml () {
