@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Clone the repo
 
-Things you may want to cover:
+* Install ruby 2.7.1 if you haven't already
 
-* Ruby version
+* Run Bundle
 
-* System dependencies
+* Install Postgres if you haven't already and ensure that server is running
 
-* Configuration
+* set up your username and password in database.yml
 
-* Database creation
+* rails db:create
 
-* Database initialization
+* rails db:migrate
 
-* How to run the test suite
+* rails db:seed
 
-* Services (job queues, cache servers, search engines, etc.)
+* rails s
 
-* Deployment instructions
-
-* ...
+* and finally open index.html in your browser

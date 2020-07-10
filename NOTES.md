@@ -1,9 +1,7 @@
 #NOTES
 
 ##Do Next
-make eventlistener for sign up work
-event show info creating more than once on multiple clicks
-user can sign up for an event - need button to render form with name.
+user post to adapter from player form
 .catch errors for fetch requests
 drop users event_id column?
 fix times display for events
