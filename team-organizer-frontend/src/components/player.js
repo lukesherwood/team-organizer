@@ -4,7 +4,7 @@ class Player {
     this.name = playerJSON.name
     // this.email = playerJSON.email
     // this.phoneNumber = playerJSON.phone_number
-    this.renderPlayers() // this is wrong need to only set up once??
+    this.renderPlayers()
   }
 
   renderPlayers () {
@@ -13,5 +13,3 @@ class Player {
     this.playersContainer.innerHTML += playerHtml
   }
 }
-
-

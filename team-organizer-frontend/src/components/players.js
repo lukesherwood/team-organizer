@@ -1,10 +1,9 @@
 class Players {
   constructor () {
     this.adapter = new UserAdapter()
-    this.eventListenerAndBindings()
   }
 
-  eventListenerAndBindings () {
+  static eventListenerAndBindings () {
     const addPlayerButtons = document.querySelectorAll('.add-player-button')
     for (const button of addPlayerButtons) {
       button.addEventListener('click', () => {
