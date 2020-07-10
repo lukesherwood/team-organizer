@@ -72,6 +72,6 @@ class Events {
     <label for="teamId">Select Team:</label><br>
     <select id="teamId" name="teamId">
     </select><br>
-    <input type="submit" id='create-event-submit' value="Submit">` 
+    <input type="submit" id='create-event-submit' value="Submit">`
   }
 }

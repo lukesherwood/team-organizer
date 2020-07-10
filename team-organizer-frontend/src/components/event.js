@@ -35,7 +35,6 @@ class Event {
   }
 
   renderEvent () {
-    console.log("fored")
     const eventLinkDiv = document.getElementById(`event${this.id}-div`)
     this.eventInfoContainer = document.getElementById(`event${this.id}-info-container`) || document.createElement('div')
     this.eventInfoContainer.id = `event${this.id}-info-container`
