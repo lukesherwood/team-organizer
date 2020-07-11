@@ -26,14 +26,18 @@ class Players {
     this.playerFormContainer.id = (`event-${this.event.id}-players-form-container`)
     playersContainer.appendChild(this.playerFormContainer)
     this.playerFormContainer.innerHTML = this.playerFormHtml()
+    this.playerFormSubmitListener()
   }
 
-  playerFormSubmit () {
+  playerFormSubmitListener () {
     const playerFormSubmit = document.querySelectorAll('.player-form')
     for (const submit of playerFormSubmit) {
-      submit.addEventListener('submit', (event) => {
+      submit.addEventListener('submit', () => {
         event.preventDefault()
-        console.log('user submitted')
+        const playerName = document.getElementById('playerName').value
+        const email = document.getElementById('email').value
+        console.log(`${playerName} - ${email}`)
+        // now need to post data
       })
     }
   }
