@@ -21,7 +21,7 @@ class Players {
   }
 
   renderPlayerForm () {
-    const playersContainer = document.getElementById(`event-${this.event.id}-players-list-container`)
+    const playersContainer = document.getElementById(`event${this.event.id}-players-container`)
     this.playerFormContainer = document.getElementById(`event-${this.event.id}-players-form-container`) || document.createElement('div')
     this.playerFormContainer.id = (`event-${this.event.id}-players-form-container`)
     playersContainer.appendChild(this.playerFormContainer)
@@ -44,7 +44,6 @@ class Players {
     const email = document.getElementById('email')
     console.log(`${playerName} - ${email}`)
     this.adapter.createUsers(playerName.value, email.value, this.event.id).then(player => {
-      console.log(this.event.id)
       const newPlayer = new Player(player, this.event.id)
       playerName.value = ''
       email.value = ''
@@ -63,6 +62,7 @@ class Players {
     <input type="text" id="email" name="email"><br>
     <input type="submit" id='create-player-submit' value="Submit">
     </form>
+    <br>
     `
   }
 }
