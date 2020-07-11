@@ -44,11 +44,13 @@ class Players {
     const email = document.getElementById('email')
     console.log(`${playerName} - ${email}`)
     this.adapter.createUsers(playerName.value, email.value, this.event.id).then(player => {
+      console.log(this.event.id)
       const newPlayer = new Player(player, this.event.id)
       playerName.value = ''
       email.value = ''
       newPlayer.renderPlayers()
     })
+    // page refreshes??
     // need to close form -- change button to this.button etc
   }
 

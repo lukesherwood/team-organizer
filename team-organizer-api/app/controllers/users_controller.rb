@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        @user.event_id = Event.find(user_params[:event_id])
+        Event.find(user_params[:event_id]).players << @user
         if @user.save
             render json: @user, status: 200
         else

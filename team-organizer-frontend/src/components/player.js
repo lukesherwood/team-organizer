@@ -9,7 +9,9 @@ class Player {
 
   renderPlayers () {
     this.playersContainer = document.getElementById(`event-${this.eventId}-players-list-container`)
-    const playerHtml = `<li>${this.name}</li>`
-    this.playersContainer.innerHTML += playerHtml
+    const playerHtml = document.createElement('li')
+    playerHtml.innerText = this.name
+    this.playersContainer.appendChild(playerHtml)
+    // this.playersContainer.innerHTML += playerHtml
   }
 }

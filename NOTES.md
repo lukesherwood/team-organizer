@@ -1,7 +1,7 @@
 #NOTES
 
 ##Do Next
-user post to adapter from player form
+need to make players render on event players list
 .catch errors for fetch requests
 drop users event_id column?
 fix times display for events
