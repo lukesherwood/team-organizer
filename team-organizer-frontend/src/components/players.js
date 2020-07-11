@@ -34,12 +34,22 @@ class Players {
     for (const submit of playerFormSubmit) {
       submit.addEventListener('submit', () => {
         event.preventDefault()
-        const playerName = document.getElementById('playerName').value
-        const email = document.getElementById('email').value
-        console.log(`${playerName} - ${email}`)
-        // now need to post data
+        this.processPlayerForm()
       })
     }
+  }
+
+  processPlayerForm () {
+    const playerName = document.getElementById('playerName')
+    const email = document.getElementById('email')
+    console.log(`${playerName} - ${email}`)
+    this.adapter.createUsers(playerName.value, email.value, this.event.id).then(player => {
+      const newPlayer = new Player(player, this.event.id)
+      playerName.value = ''
+      email.value = ''
+      newPlayer.renderPlayers()
+    })
+    // need to close form -- change button to this.button etc
   }
 
   playerFormHtml () {
