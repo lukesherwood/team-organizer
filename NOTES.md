@@ -2,8 +2,8 @@
 
 ##Do Next
 .catch errors for fetch requests
-fix times display for events
-Delete functions for events, teams and user(players)
+make function to process inputted date time from new event info here - https://www.toptal.com/software/definitive-guide-to-datetime-manipulation
+Delete actions for events, teams and user(players)
 CSS and styling
 buttons say click to close when open?
 validations?

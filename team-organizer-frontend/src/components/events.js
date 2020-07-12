@@ -6,13 +6,16 @@ class Events {
   }
 
   eventListenerAndBindings () {
-    document.getElementById('create-event-button').addEventListener('click', (event) => {
+    this.createEventButton = document.getElementById('create-event-button')
+    this.createEventButton.addEventListener('click', (event) => {
       event.preventDefault()
       if (this.createForm) { // collapses form if already open
         this.createForm.innerHTML = ''
+        this.createEventButton.innerText = 'Create a New Event'
         this.createForm = false
       } else {
         this.renderCreateEventForm()
+        this.createEventButton.innerText = 'Click here to close'
       }
     })
   }
@@ -66,9 +69,9 @@ class Events {
     <label for="location">Location:</label><br>
     <input type="text" id="location" name="location"><br>
     <label for="startTime">Start Time:</label><br>
-    <input type="datetime" id="startTime" name="startTime"><br>
+    <input type="datetime" id="startTime" name="startTime" placeholder="HH:MM DD/MM/YYYY"><br>
     <label for="endTime">End Time:</label><br>
-    <input type="datetime" id="endTime" name="endTime"><br>
+    <input type="datetime" id="endTime" name="endTime" placeholder="HH:MM DD/MM/YYYY"><br>
     <label for="teamId">Select Team:</label><br>
     <select id="teamId" name="teamId">
     </select><br>

@@ -29,9 +29,11 @@ class Teams {
     this.createTeamButton.addEventListener('click', () => {
       if (this.createTeamForm) { // collapses form if already open
         this.createTeamForm.innerHTML = ''
+        this.createTeamButton.innerText = 'Create a new team'
         this.createTeamForm = false
       } else {
         this.renderCreateTeamForm()
+        this.createTeamButton.innerText = 'Click here to close'
       }
     })
   }
