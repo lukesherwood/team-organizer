@@ -61,8 +61,18 @@ class Event {
     })
   }
 
+  convertDateTime (date) { // buggy as shit
+    const currentDate = new Date(date)
+    const hours = currentDate.getHours()
+    const minutes = currentDate.getMinutes()
+    const day = currentDate.getDate()
+    const month = currentDate.getMonth()
+    const year = currentDate.getFullYear()
+    return `${hours}:${minutes}0 ${day}/${month}/${year}`
+  }
+
   eventInfoHtml () {
-    return `<p>${this.startTime} - ${this.endTime} </p>
+    return `<p>${this.convertDateTime(this.startTime)} - ${this.convertDateTime(this.endTime)} </p> 
     <p>${this.location}</p>
     <p>${this.description}</p>
     `

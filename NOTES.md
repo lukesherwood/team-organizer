@@ -1,9 +1,7 @@
 #NOTES
 
 ##Do Next
-dom player render is inserting twice only for dom render first time
 .catch errors for fetch requests
-drop users event_id column?
 fix times display for events
 Delete functions for events, teams and user(players)
 CSS and styling
