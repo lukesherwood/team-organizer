@@ -12,6 +12,5 @@ class Player {
     const playerHtml = document.createElement('li')
     playerHtml.innerText = this.name
     this.playersContainer.appendChild(playerHtml)
-    // this.playersContainer.innerHTML += playerHtml
   }
 }

@@ -50,7 +50,7 @@ class Event {
     playersInfoContainer.id = `event${this.id}-players-container`
     playersInfoContainer.innerHTML = `<h4>Players</h4>
       <ul id="event-${this.id}-players-list-container"></ul><br>
-      <button class='add-player-button' id="event-${this.id}-add-player-button">Sign up for this event</button><br>`
+      <button class='add-player-button' id="event-${this.id}add-player-button">Sign up for this event</button><br>`
     this.eventInfoContainer.appendChild(playersInfoContainer)
     new Players(this)
   }

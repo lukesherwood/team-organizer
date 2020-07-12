@@ -2,7 +2,7 @@ class Players {
   constructor (event) {
     this.adapter = new UserAdapter()
     this.eventListenerAndBindings()
-    this.event = event
+    this.event = event // can we remove this and move it to player class?
   }
 
   eventListenerAndBindings () {
@@ -42,15 +42,13 @@ class Players {
   processPlayerForm () {
     const playerName = document.getElementById('playerName')
     const email = document.getElementById('email')
-    console.log(`${playerName} - ${email}`)
     this.adapter.createUsers(playerName.value, email.value, this.event.id).then(player => {
       const newPlayer = new Player(player, this.event.id)
       playerName.value = ''
       email.value = ''
-      newPlayer.renderPlayers()
     })
-    // page refreshes??
-    // need to close form -- change button to this.button etc
+    const addPlayerButton = document.getElementById(`event-${this.event.id}add-player-button`)
+    addPlayerButton.click() // closes form
   }
 
   playerFormHtml () {

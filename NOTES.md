@@ -1,9 +1,7 @@
 #NOTES
 
 ##Do Next
-chnage html so h4 players and everything else is in its own div, then form is appended to that rather than UL
-dom player render is inserting twice after the form
-need to stop page refreshing at post player. render to dom without databse and refresh.
+dom player render is inserting twice only for dom render first time
 .catch errors for fetch requests
 drop users event_id column?
 fix times display for events
