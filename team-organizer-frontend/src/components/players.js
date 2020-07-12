@@ -12,9 +12,11 @@ class Players {
         event.preventDefault()
         if (this.playerFormContainer) {
           this.playerFormContainer.innerHTML = ''
+          button.innerText = 'Sign up for this event'
           this.playerFormContainer = false
         } else {
           this.renderPlayerForm()
+          button.innerText = 'Click here to close'
         }
       })
     }
