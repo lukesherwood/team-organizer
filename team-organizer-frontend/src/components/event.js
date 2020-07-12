@@ -61,14 +61,21 @@ class Event {
     })
   }
 
-  convertDateTime (date) { // buggy as shit
+  convertDateTime (date) {
+    function pad (n) {
+      if (n == 3) {
+        return n + '0'
+      } else {
+        return n < 10 ? '0' + n : n
+      }
+    }
     const currentDate = new Date(date)
     const hours = currentDate.getHours()
     const minutes = currentDate.getMinutes()
     const day = currentDate.getDate()
     const month = currentDate.getMonth()
     const year = currentDate.getFullYear()
-    return `${hours}:${minutes}0 ${day}/${month}/${year}`
+    return `${pad(hours)}:${pad(minutes)} ${pad(day)}/${pad(month)}/${year}`
   }
 
   eventInfoHtml () {
