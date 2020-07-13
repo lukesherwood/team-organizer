@@ -24,10 +24,15 @@ class EventsController < ApplicationController
         end
     end
 
+    def destroy
+        @event = Event.find(event_params[:id])
+        @event.destroy
+    end
+
     private
 
     def event_params
-        params.require(:event).permit(:name, :description, :location, :start_time, :end_time, :team_id) #might need to add creator id and team id here?
+        params.require(:event).permit(:name, :description, :location, :start_time, :end_time, :team_id)
     end
 end
 

@@ -22,6 +22,11 @@ class TeamsController < ApplicationController
         end
     end
 
+    def destroy
+        @team = Team.find(team_params[:id])
+        @team.destroy
+    end
+
     private
 
     def team_params

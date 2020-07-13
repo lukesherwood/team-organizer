@@ -1,11 +1,12 @@
 #NOTES
 
 ##Do Next
+Delete actions for events, teams and user(players)
+download project requirements file and check off completed
 .catch errors for fetch requests
 make function to process inputted date time from new event info here - https://www.toptal.com/software/definitive-guide-to-datetime-manipulation
-Delete actions for events, teams and user(players)
-CSS and styling
 validations?
+CSS and styling
 
 
 ##APP TASKS
