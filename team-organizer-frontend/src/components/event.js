@@ -44,17 +44,18 @@ class Event {
     const deleteButton = document.getElementById(`event-${this.id}delete-event-button`)
     deleteButton.addEventListener('click', () => {
       this.adapter.destroyEvent(this.team.id, this.id).then(() => {
-        console.log('success')
+        const eventInfo = document.getElementById(`event${this.id}-div`)
+        eventInfo.parentNode.removeChild(eventInfo)
       })
     })
   }
 
   renderEvent () {
-    const eventLinkDiv = document.getElementById(`event${this.id}-div`)
+    this.eventLinkDiv = document.getElementById(`event${this.id}-div`)
     this.eventInfoContainer = document.getElementById(`event${this.id}-info-container`) || document.createElement('div')
     this.eventInfoContainer.id = `event${this.id}-info-container`
     this.eventInfoContainer.innerHTML = this.eventInfoHtml()
-    eventLinkDiv.appendChild(this.eventInfoContainer)
+    this.eventLinkDiv.appendChild(this.eventInfoContainer)
     this.renderPlayersHtml()
     this.createPlayers()
   }
