@@ -1,8 +1,7 @@
 #NOTES
 
 ##Do Next
-something broken about create event and create new player. page refreshes
-event gets deleted but getting the error message pop up
+seems to be fixed? now just delete from dom
 add delete functions to user, event and team adapters // do i need to delete also the associations??
 add links to delete and then process the links with functions.
 download project requirements file and check off completed

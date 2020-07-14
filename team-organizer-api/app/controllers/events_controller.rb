@@ -20,14 +20,14 @@ class EventsController < ApplicationController
         if @event.save
             render json: @event, status: 200
         else
-            render json: {message: 'Error creating event'}t #render json: {message: 'Event not created'}
+            render json: {message: 'Error creating event'} #render json: {message: 'Event not created'}
         end
     end
 
     def destroy
         @event = Event.find(event_params[:id])
         if @event.destroy
-            render body: nil, status: :no_content
+            render body: {}, status: :no_content
         else
             render json: {message: 'Error deleting event'} #render json: {message: 'Event not created'}
         end
