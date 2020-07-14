@@ -24,4 +24,22 @@ class EventAdapter {
         return alert(error.message)
       })
   }
+
+  destroyEvent (teamId, eventId) {
+    this.baseUrl += `${teamId}/events/${eventId}`
+    const event = {
+      team_id: teamId,
+      id: eventId
+    }
+    return fetch(this.baseUrl, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({ event })
+    }).then(res => res.json())
+      .catch(error => {
+        return alert(error.message)
+      })
+  }
 }

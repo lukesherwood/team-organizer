@@ -9,17 +9,26 @@ class Event {
     this.team = eventJSON.team
     this.rawPlayers = eventJSON.players
     this.players = []
+    this.adapter = new EventAdapter()
     this.renderEventLink()
+    this.renderDeleteButton()
     this.eventListenerAndBindings()
   }
 
   renderEventLink () {
     const team = document.getElementById(`team${this.team.id}-events-list`)
-    const eventLink = document.createElement('li')
-    eventLink.id = `event${this.id}-div`
-    eventLink.innerHTML = `<a href='#' id='event${this.id}-link'>${this.name}</a>`
-    eventLink.className = 'event-list-item'
-    team.appendChild(eventLink)
+    this.eventLink = document.createElement('li')
+    this.eventLink.id = `event${this.id}-div`
+    this.eventLink.innerHTML = `<a href='#' id='event${this.id}-link'>${this.name}</a>`
+    this.eventLink.className = 'event-list-item'
+    team.appendChild(this.eventLink)
+  }
+
+  renderDeleteButton () {
+    const buttonContainer = document.createElement('div')
+    buttonContainer.id = `event${this.id}-delete-button-div`
+    buttonContainer.innerHTML = `<button class='delete-event-button' id="event-${this.id}delete-event-button">Delete this event</button><br>`
+    this.eventLink.appendChild(buttonContainer)
   }
 
   eventListenerAndBindings () {
@@ -31,6 +40,12 @@ class Event {
       } else {
         this.renderEvent()
       }
+    })
+    const deleteButton = document.getElementById(`event-${this.id}delete-event-button`)
+    deleteButton.addEventListener('click', () => {
+      this.adapter.destroyEvent(this.team.id, this.id).then(() => {
+        console.log('success')
+      })
     })
   }
 

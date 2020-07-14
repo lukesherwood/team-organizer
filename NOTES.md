@@ -1,7 +1,10 @@
 #NOTES
 
 ##Do Next
-Delete actions for events, teams and user(players)
+something broken about create event and create new player. page refreshes
+event gets deleted but getting the error message pop up
+add delete functions to user, event and team adapters // do i need to delete also the associations??
+add links to delete and then process the links with functions.
 download project requirements file and check off completed
 .catch errors for fetch requests
 make function to process inputted date time from new event info here - https://www.toptal.com/software/definitive-guide-to-datetime-manipulation
