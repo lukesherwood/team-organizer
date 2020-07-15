@@ -37,7 +37,7 @@ class Team {
   renderDeleteButton () {
     const buttonContainer = document.createElement('div')
     buttonContainer.id = `team${this.id}-delete-button-div`
-    buttonContainer.innerHTML = `<button class='delete-team-button' id="team-${this.id}delete-event-button">Delete this team</button><br>`
+    buttonContainer.innerHTML = `<button class='delete-team-button btn btn-danger btn-xs' id="team-${this.id}delete-event-button">Delete this team</button><br>`
     const team = document.getElementById(`team${this.id}-item`)
     team.appendChild(buttonContainer)
   }

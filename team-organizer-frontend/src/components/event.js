@@ -27,7 +27,7 @@ class Event {
   renderDeleteButton () {
     const buttonContainer = document.createElement('div')
     buttonContainer.id = `event${this.id}-delete-button-div`
-    buttonContainer.innerHTML = `<button class='delete-event-button' id="event-${this.id}delete-event-button">Delete this event</button><br>`
+    buttonContainer.innerHTML = `<button class='btn btn-danger btn-xs delete-event-button' id="event-${this.id}delete-event-button">Delete this event</button><br>`
     this.eventLink.appendChild(buttonContainer)
   }
 
@@ -66,7 +66,7 @@ class Event {
     playersInfoContainer.id = `event${this.id}-players-container`
     playersInfoContainer.innerHTML = `<h4>Players</h4>
       <ul id="event-${this.id}-players-list-container"></ul><br>
-      <button class='add-player-button' id="event-${this.id}add-player-button">Sign up for this event</button><br>`
+      <button class='btn btn btn-primary btn-xs add-player-button' id="event-${this.id}add-player-button">Sign up for this event</button><br>`
     this.eventInfoContainer.appendChild(playersInfoContainer)
     new Players(this)
   }

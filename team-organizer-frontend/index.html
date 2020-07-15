@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Events</title>
@@ -13,11 +11,11 @@
     <div class="container">
         <h1>Teams</h1>
         <div id="create-team-form-container">
-            <button class='create-button' id='create-team-button'>Create a New Team</button>
+            <button class='create-team-button btn btn btn-primary btn-xs' id='create-team-button'>Create a New Team</button>
             <form id='create-team-form'></form>
         </div> <br> 
         <div id="create-event-form-container">
-            <button class='create-event-button' id='create-event-button'>Create a New Event</button>
+            <button class='create-event-button btn btn btn-primary btn-xs' id='create-event-button'>Create a New Event</button>
             <form id='create-event-form'></form>
         </div>
         <ul id="team-list">
@@ -34,5 +32,7 @@
 <script type="application/javascript" src="src/adapters/event_adapter.js" charset="UTF-8"></script>
 <script type="application/javascript" src="src/adapters/team_adapter.js" charset="UTF-8"></script>
 <script type="application/javascript" src="src/index.js" charset="UTF-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>

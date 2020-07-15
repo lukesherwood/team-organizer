@@ -21,7 +21,7 @@ class Player {
 
   renderDeleteButton () {
     const player = document.getElementById(`player-${this.id}`)
-    player.innerHTML += `<button class='delete-player-button' id="player-${this.id}delete-player-button">X</button><br>`
+    player.innerHTML += `<button class='btn btn-danger btn-xs delete-player-button' id="player-${this.id}delete-player-button">X</button><br>`
   }
 
   eventListenerAndBindings () {
