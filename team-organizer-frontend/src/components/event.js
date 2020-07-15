@@ -91,7 +91,7 @@ class Event {
     const day = currentDate.getDate()
     const month = currentDate.getMonth()
     const year = currentDate.getFullYear()
-    return `${pad(hours)}:${pad(minutes)} ${pad(day)}/${pad(month)}/${year}`
+    return `${pad(hours)}:${pad(minutes)} ${pad(day)}/${pad(month)}/${year}` // why is this showing pm times as am times?
   }
 
   eventInfoHtml () {

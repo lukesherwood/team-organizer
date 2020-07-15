@@ -1,9 +1,11 @@
 #NOTES
 
 ##Do Next
-seems to be fixed? now just delete from dom
-add delete functions to user, event and team adapters // do i need to delete also the associations??
+user delete is not removing player from database, what players are showing? we only deleted event.players(user) 
+delete need to remove player from event.players JS
+add delete functions to user and team 
 add links to delete and then process the links with functions.
+do I need edit functions and buttons?
 download project requirements file and check off completed
 .catch errors for fetch requests
 make function to process inputted date time from new event info here - https://www.toptal.com/software/definitive-guide-to-datetime-manipulation
