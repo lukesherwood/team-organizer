@@ -6,6 +6,7 @@ class Team {
     this.description = teamJSON.description;
     this.rawEvents = teamJSON.events;
     this.events = []
+    this.adapter = new TeamAdapter()
   };
 
   renderTeam () {
@@ -16,10 +17,12 @@ class Team {
     listItem.innerHTML = this.renderHtml();
     list.appendChild(listItem);
     this.createEvents(this.rawEvents);
+    this.renderDeleteButton()
+    this.eventListenerAndBindings()
   }
 
   renderHtml () {
-    return `<h2>${this.name}</h2>
+    return `<h2 id='team${this.id}-title'>${this.name}</h2>
     <p>${this.description}</p>
     <h3>Events</h3>
     <ul class='team-events-list' id='team${this.id}-events-list'></ul><br>`
@@ -29,5 +32,23 @@ class Team {
     events.forEach((event) => {
       this.events.push(new Event(event));
     });
+  }
+
+  renderDeleteButton () {
+    const buttonContainer = document.createElement('div')
+    buttonContainer.id = `team${this.id}-delete-button-div`
+    buttonContainer.innerHTML = `<button class='delete-team-button' id="team-${this.id}delete-event-button">Delete this team</button><br>`
+    const teamTitle = document.getElementById(`team${this.id}-title`)
+    teamTitle.appendChild(buttonContainer)
+  }
+
+  eventListenerAndBindings () {
+    const deleteButton = document.getElementById(`team-${this.id}delete-event-button`)
+    deleteButton.addEventListener('click', () => {
+      this.adapter.destroyTeam(this.id).then(() => {
+        const team = document.getElementById(`team${this.id}-item`)
+        team.parentNode.removeChild(team)
+      })
+    })
   }
 }

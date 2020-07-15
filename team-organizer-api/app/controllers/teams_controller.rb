@@ -24,12 +24,16 @@ class TeamsController < ApplicationController
 
     def destroy
         @team = Team.find(team_params[:id])
-        @team.destroy
+        if @team.destroy
+            render body: {}, status: :no_content
+        else
+            render json: {message: 'Error deleting event'} #render json: {message: 'Event not created'}
+        end
     end
 
     private
 
     def team_params
-        params.require(:team).permit(:name, :description)
+        params.require(:team).permit(:name, :description, :id)
     end
 end
