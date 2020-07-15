@@ -1,11 +1,9 @@
 #NOTES
 
 ##Do Next
-user delete is not removing player from database, what players are showing? we only deleted event.players(user) 
-delete need to remove player from event.players JS
-add delete functions to user and team 
-add links to delete and then process the links with functions.
-do I need edit functions and buttons?
+team delete button is within header?
+team delete has issues with event user relationship not being deleted?
+edit function for event and maybe for team?
 download project requirements file and check off completed
 .catch errors for fetch requests
 make function to process inputted date time from new event info here - https://www.toptal.com/software/definitive-guide-to-datetime-manipulation

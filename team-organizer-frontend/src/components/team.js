@@ -38,8 +38,8 @@ class Team {
     const buttonContainer = document.createElement('div')
     buttonContainer.id = `team${this.id}-delete-button-div`
     buttonContainer.innerHTML = `<button class='delete-team-button' id="team-${this.id}delete-event-button">Delete this team</button><br>`
-    const teamTitle = document.getElementById(`team${this.id}-title`)
-    teamTitle.appendChild(buttonContainer)
+    const team = document.getElementById(`team${this.id}-item`)
+    team.appendChild(buttonContainer)
   }
 
   eventListenerAndBindings () {
