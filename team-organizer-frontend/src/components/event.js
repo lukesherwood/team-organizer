@@ -20,14 +20,14 @@ class Event {
     this.eventLink = document.createElement('li')
     this.eventLink.id = `event${this.id}-div`
     this.eventLink.innerHTML = `<a href='#' id='event${this.id}-link'>${this.name}</a>`
-    this.eventLink.className = 'event-list-item'
+    this.eventLink.className = 'list-group-item'
     team.appendChild(this.eventLink)
   }
 
   renderDeleteButton () {
     const buttonContainer = document.createElement('div')
     buttonContainer.id = `event${this.id}-delete-button-div`
-    buttonContainer.innerHTML = `<button class='btn btn-danger btn-xs delete-event-button' id="event-${this.id}delete-event-button">Delete this event</button><br>`
+    buttonContainer.innerHTML = `<button class='btn btn-outline-danger btn-sm delete-event-button' id="event-${this.id}delete-event-button">Delete this event</button><br>`
     this.eventLink.appendChild(buttonContainer)
   }
 
@@ -63,10 +63,13 @@ class Event {
   renderPlayersHtml () {
     this.eventInfoContainer = document.getElementById(`event${this.id}-info-container`)
     const playersInfoContainer = document.createElement('div')
+    playersInfoContainer.className = 'card'
+    playersInfoContainer.style = 'width: 25rem;'
     playersInfoContainer.id = `event${this.id}-players-container`
-    playersInfoContainer.innerHTML = `<h4>Players</h4>
-      <ul id="event-${this.id}-players-list-container"></ul><br>
-      <button class='btn btn btn-primary btn-xs add-player-button' id="event-${this.id}add-player-button">Sign up for this event</button><br>`
+    playersInfoContainer.innerHTML = `
+      <h4 class="card-header">Players</h4>
+      <ul class="list-group list-group-flush" id="event-${this.id}-players-list-container"></ul>
+      <button class='btn btn btn-outline-primary btn-sm add-player-button' id="event-${this.id}add-player-button">Sign up for this event</button>`
     this.eventInfoContainer.appendChild(playersInfoContainer)
     new Players(this)
   }

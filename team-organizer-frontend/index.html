@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +9,18 @@
 </head>
 <body>
     <div class="container">
-        <h1>Teams</h1>
+        <div id="team-list" class="list-group bg-light mb-3">
+        <h1 class="card-header text-white" style="background-color: rgb(38, 101, 122); opacity: 80%;" >Teams</h1>
+        <div class="btn-group" role="group">
         <div id="create-team-form-container">
-            <button class='create-team-button btn btn btn-primary btn-xs' id='create-team-button'>Create a New Team</button>
+            <button class='create-team-button btn btn btn-outline-primary btn-sm' id='create-team-button'>Create a New Team</button>
             <form id='create-team-form'></form>
-        </div> <br> 
+        </div>
         <div id="create-event-form-container">
-            <button class='create-event-button btn btn btn-primary btn-xs' id='create-event-button'>Create a New Event</button>
+            <button class='create-event-button btn btn btn-outline-primary btn-sm' id='create-event-button'>Create a New Event</button>
             <form id='create-event-form'></form>
         </div>
-        <ul id="team-list">
+        </div>
         </ul>
     </div>
 <script type="application/javascript" src="src/components/player.js" charset="UTF-8"></script>

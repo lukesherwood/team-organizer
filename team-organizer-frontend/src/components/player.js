@@ -15,13 +15,14 @@ class Player {
     this.playersContainer = document.getElementById(`event-${this.eventId}-players-list-container`)
     const playerHtml = document.createElement('li')
     playerHtml.id = `player-${this.id}`
+    playerHtml.className = 'list-group-item'
     playerHtml.innerText = this.name
     this.playersContainer.appendChild(playerHtml)
   }
 
   renderDeleteButton () {
     const player = document.getElementById(`player-${this.id}`)
-    player.innerHTML += `<button class='btn btn-danger btn-xs delete-player-button' id="player-${this.id}delete-player-button">X</button><br>`
+    player.innerHTML += `<button class='btn btn-outline-danger btn-sm delete-player-button' id="player-${this.id}delete-player-button">X</button>`
   }
 
   eventListenerAndBindings () {

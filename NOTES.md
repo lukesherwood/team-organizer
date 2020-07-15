@@ -1,8 +1,8 @@
 #NOTES
 
 ##Do Next
-team delete button is within header?
 team delete has issues with event user relationship not being deleted?
+playrs
 edit function for event and maybe for team?
 download project requirements file and check off completed
 .catch errors for fetch requests
