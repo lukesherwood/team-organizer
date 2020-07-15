@@ -14,23 +14,22 @@ class Player {
   renderPlayers () {
     this.playersContainer = document.getElementById(`event-${this.eventId}-players-list-container`)
     const playerHtml = document.createElement('li')
-    playerHtml.id = `player-${this.id}`
+    playerHtml.id = `event-${this.eventId}-player-${this.id}`
     playerHtml.className = 'list-group-item'
     playerHtml.innerText = this.name
     this.playersContainer.appendChild(playerHtml)
   }
 
   renderDeleteButton () {
-    const player = document.getElementById(`player-${this.id}`)
-    player.innerHTML += `<button class='btn btn-outline-danger btn-sm delete-player-button' id="player-${this.id}delete-player-button">X</button>`
+    const player = document.getElementById(`event-${this.eventId}-player-${this.id}`)
+    player.innerHTML += `<button class='btn btn-outline-danger btn-sm float-right' id="event-${this.eventId}-player-${this.id}delete-player-button">X</button>`
   }
 
   eventListenerAndBindings () {
-    const deleteButton = document.getElementById(`player-${this.id}delete-player-button`)
+    const deleteButton = document.getElementById(`event-${this.eventId}-player-${this.id}delete-player-button`)
     deleteButton.addEventListener('click', () => {
       this.adapter.destroyPlayer(this.eventId, this.id).then(() => {
-        const player = document.getElementById(`player-${this.id}`)
-        // need to delete player from event.players
+        const player = document.getElementById(`event-${this.eventId}-player-${this.id}`)
         player.parentNode.removeChild(player)
       })
     })

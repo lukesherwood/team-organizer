@@ -1,13 +1,14 @@
 #NOTES
 
 ##Do Next
-team delete has issues with event user relationship not being deleted?
-playrs
+when rendering player delete should find by id event-1-player-3-delete-button
+players render to dom then once minimised and reopened dont appear
+warning before delete
 edit function for event and maybe for team?
-download project requirements file and check off completed
+validations and error handling
 .catch errors for fetch requests
 make function to process inputted date time from new event info here - https://www.toptal.com/software/definitive-guide-to-datetime-manipulation
-validations?
+
 CSS and styling
 
 
@@ -22,7 +23,7 @@ CSS and styling
 - forms for creating an event
 
 ##Stretch
-
+could i have some kid of log in feature?
 users can have many teams (will need a join table - user_teams)
 add reoccurring events
 only show current events

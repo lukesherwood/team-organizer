@@ -25,7 +25,7 @@ class Team {
     return `<h2 id='team${this.id}-title'>${this.name}</h2>
     <p>${this.description}</p>
     <div class='card' style="width: 50rem;"'>
-    <h3 class="card-header text-white" style="background-color: rgb(38, 101, 122); opacity: 80%;">Events</h3>
+    <h3 class="card-header text-white" style="background-color: rgb(38, 101, 122); opacity: 80%; padding: 2px;">Events</h3>
     <ul class='list-group list-group-flush' id='team${this.id}-events-list'></ul>
     </div>`
   }

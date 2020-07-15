@@ -53,8 +53,8 @@ class Players {
     addPlayerButton.click() // closes form
   }
 
-  playerFormHtml () {
-    return `<br>
+  playerFormHtml () { 
+    return `<br> 
     <form class='player-form'>
     <label for="playerName">Enter your Name:</label><br>
     <input type="text" id="playerName" name="playerName"><br>
