@@ -1,14 +1,11 @@
 #NOTES
 
 ##Do Next
-when rendering player delete should find by id event-1-player-3-delete-button
 players render to dom then once minimised and reopened dont appear
 warning before delete
 edit function for event and maybe for team?
 validations and error handling
 .catch errors for fetch requests
-make function to process inputted date time from new event info here - https://www.toptal.com/software/definitive-guide-to-datetime-manipulation
-
 CSS and styling
 
 

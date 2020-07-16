@@ -4,7 +4,7 @@ class Player {
     this.name = playerJSON.name
     this.id = playerJSON.id
     this.adapter = new UserAdapter()
-    // this.email = playerJSON.email
+    this.email = playerJSON.email
     // this.phoneNumber = playerJSON.phone_number
     this.renderPlayers()
     this.renderDeleteButton()

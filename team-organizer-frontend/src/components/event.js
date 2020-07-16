@@ -82,10 +82,17 @@ class Event {
 
   convertDateTime (date) {
     function pad (n) {
-      if (n == 3) {
+      if (n === 3) {
         return n + '0'
       } else {
         return n < 10 ? '0' + n : n
+      }
+    }
+    function convertHours (hour) {
+      if (hour < 12) {
+        return hour + 12
+      } else {
+        return hour - 12
       }
     }
     const currentDate = new Date(date)
@@ -94,7 +101,7 @@ class Event {
     const day = currentDate.getDate()
     const month = currentDate.getMonth()
     const year = currentDate.getFullYear()
-    return `${pad(hours)}:${pad(minutes)} ${pad(day)}/${pad(month)}/${year}` // why is this showing pm times as am times?
+    return `${convertHours(hours)}:${pad(minutes)} ${pad(day)}/${pad(month)}/${year}`
   }
 
   eventInfoHtml () {
