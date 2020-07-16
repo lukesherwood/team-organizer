@@ -28,10 +28,12 @@ class Player {
   eventListenerAndBindings () {
     const deleteButton = document.getElementById(`event-${this.eventId}-player-${this.id}delete-player-button`)
     deleteButton.addEventListener('click', () => {
-      this.adapter.destroyPlayer(this.eventId, this.id).then(() => {
-        const player = document.getElementById(`event-${this.eventId}-player-${this.id}`)
-        player.parentNode.removeChild(player)
-      })
+      if (confirm('Are you sure you want to remove this player?')) {
+        this.adapter.destroyPlayer(this.eventId, this.id).then(() => {
+          const player = document.getElementById(`event-${this.eventId}-player-${this.id}`)
+          player.parentNode.removeChild(player)
+        })
+      }
     })
   }
 }

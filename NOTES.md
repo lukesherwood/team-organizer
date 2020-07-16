@@ -23,7 +23,7 @@ if admin then links delete buttons show else not?
 ##Stretch
 could i have some kid of log in feature?
 users can have many teams (will need a join table - user_teams)
-add reoccurring events
+add reoccurring events show as a badge (reoccuring) (one off) etc - selected by checkbox in form
 only show current events
 notify players if a new event posted or event they are a part of is changed by creator
 comments on events etc

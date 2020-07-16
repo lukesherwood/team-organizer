@@ -43,10 +43,12 @@ class Event {
     })
     const deleteButton = document.getElementById(`event-${this.id}delete-event-button`)
     deleteButton.addEventListener('click', () => {
-      this.adapter.destroyEvent(this.team.id, this.id).then(() => {
-        const eventInfo = document.getElementById(`event${this.id}-div`)
-        eventInfo.parentNode.removeChild(eventInfo)
-      })
+      if (confirm('Are you sure you want to remove this event?')) {
+        this.adapter.destroyEvent(this.team.id, this.id).then(() => {
+          const eventInfo = document.getElementById(`event${this.id}-div`)
+          eventInfo.parentNode.removeChild(eventInfo)
+        })
+      }
     })
   }
 

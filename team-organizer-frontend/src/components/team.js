@@ -47,10 +47,12 @@ class Team {
   eventListenerAndBindings () {
     const deleteButton = document.getElementById(`team-${this.id}delete-event-button`)
     deleteButton.addEventListener('click', () => {
-      this.adapter.destroyTeam(this.id).then(() => {
-        const team = document.getElementById(`team${this.id}-item`)
-        team.parentNode.removeChild(team)
-      })
+      if (confirm('Are you sure you want to remove this player?')) {
+        this.adapter.destroyTeam(this.id).then(() => {
+          const team = document.getElementById(`team${this.id}-item`)
+          team.parentNode.removeChild(team)
+        })
+      }
     })
   }
 }
