@@ -6,7 +6,8 @@ warning before delete
 edit function for event and maybe for team?
 validations and error handling
 .catch errors for fetch requests
-CSS and styling
+add banner/navbar
+if admin then links delete buttons show else not?
 
 
 ##APP TASKS

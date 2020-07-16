@@ -19,7 +19,7 @@ class Event {
     const team = document.getElementById(`team${this.team.id}-events-list`)
     this.eventLink = document.createElement('li')
     this.eventLink.id = `event${this.id}-div`
-    this.eventLink.innerHTML = `<a href='#' id='event${this.id}-link'>${this.name}</a>`
+    this.eventLink.innerHTML = `<h5><a href='#' id='event${this.id}-link'>${this.name}</a></h5>`
     this.eventLink.className = 'list-group-item'
     team.appendChild(this.eventLink)
   }
@@ -67,7 +67,7 @@ class Event {
     playersInfoContainer.style = 'width: 25rem;'
     playersInfoContainer.id = `event${this.id}-players-container`
     playersInfoContainer.innerHTML = `
-      <h4 class="card-header">Players</h4>
+      <h5 class="card-header text-white" style="background-color: rgb(38, 101, 122); opacity: 80%; padding: 2px; text-align: center;">Players</h5>
       <ul class="list-group list-group-flush" id="event-${this.id}-players-list-container"></ul>
       <button class='btn btn btn-outline-primary btn-sm add-player-button' id="event-${this.id}add-player-button">Sign up for this event</button>`
     this.eventInfoContainer.appendChild(playersInfoContainer)
