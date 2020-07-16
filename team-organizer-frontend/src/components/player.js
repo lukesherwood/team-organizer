@@ -16,6 +16,7 @@ class Player {
     const playerHtml = document.createElement('li')
     playerHtml.id = `event-${this.eventId}-player-${this.id}`
     playerHtml.className = 'list-group-item'
+    playerHtml.style = 'padding:5px;'
     playerHtml.innerText = this.name
     this.playersContainer.appendChild(playerHtml)
   }

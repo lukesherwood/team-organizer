@@ -21,7 +21,7 @@ class Event {
     cardDiv.className = 'card'
     this.eventLink = document.createElement('li')
     this.eventLink.id = `event${this.id}-div`
-    this.eventLink.innerHTML = `<h5 class='card-title'><a href='#' id='event${this.id}-link'>${this.name}</a></h5>`
+    this.eventLink.innerHTML = `<h5 class='card-title' id='event${this.id}-title'><a href='#' id='event${this.id}-link'>${this.name}</a></h5>`
     this.eventLink.className = 'card-body'
     team.appendChild(cardDiv)
     cardDiv.appendChild(this.eventLink)
@@ -29,9 +29,11 @@ class Event {
 
   renderDeleteButton () {
     const buttonContainer = document.createElement('div')
+    const event = document.getElementById(`event${this.id}-title`)
     buttonContainer.id = `event${this.id}-delete-button-div`
-    buttonContainer.innerHTML = `<button class='btn btn-outline-danger btn-sm delete-event-button' id="event-${this.id}delete-event-button">Delete</button>`
-    this.eventLink.appendChild(buttonContainer)
+    buttonContainer.className = 'float-right'
+    buttonContainer.innerHTML = `<button class='btn btn-outline-danger btn-sm' id="event-${this.id}delete-event-button">Delete</button>`
+    event.appendChild(buttonContainer)
   }
 
   eventListenerAndBindings () {
