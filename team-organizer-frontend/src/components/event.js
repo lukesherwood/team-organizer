@@ -17,17 +17,20 @@ class Event {
 
   renderEventLink () {
     const team = document.getElementById(`team${this.team.id}-events-list`)
+    const cardDiv = document.createElement('div')
+    cardDiv.className = 'card'
     this.eventLink = document.createElement('li')
     this.eventLink.id = `event${this.id}-div`
-    this.eventLink.innerHTML = `<h5><a href='#' id='event${this.id}-link'>${this.name}</a></h5>`
-    this.eventLink.className = 'list-group-item'
-    team.appendChild(this.eventLink)
+    this.eventLink.innerHTML = `<h5 class='card-title'><a href='#' id='event${this.id}-link'>${this.name}</a></h5>`
+    this.eventLink.className = 'card-body'
+    team.appendChild(cardDiv)
+    cardDiv.appendChild(this.eventLink)
   }
 
   renderDeleteButton () {
     const buttonContainer = document.createElement('div')
     buttonContainer.id = `event${this.id}-delete-button-div`
-    buttonContainer.innerHTML = `<button class='btn btn-outline-danger btn-sm delete-event-button' id="event-${this.id}delete-event-button">Delete this event</button><br>`
+    buttonContainer.innerHTML = `<button class='btn btn-outline-danger btn-sm delete-event-button' id="event-${this.id}delete-event-button">Delete</button>`
     this.eventLink.appendChild(buttonContainer)
   }
 

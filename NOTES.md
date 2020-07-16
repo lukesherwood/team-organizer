@@ -1,6 +1,7 @@
 #NOTES
 
 ##Do Next
+display events horzontally in columns
 players render to dom then once minimised and reopened dont appear
 warning before delete
 edit function for event and maybe for team?
