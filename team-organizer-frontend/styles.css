@@ -21,3 +21,7 @@ ul {
 .nav-item {
     font-size: larger;
 }
+
+.event-delete-button {
+    /* padding-left:4em; */
+}

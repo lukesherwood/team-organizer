@@ -17,17 +17,17 @@ class Team {
     listItem.innerHTML = this.renderHtml();
     list.appendChild(listItem);
     this.createEvents(this.rawEvents);
-    this.renderDeleteButton()
-    this.eventListenerAndBindings()
+    // this.renderDeleteButton()
+    // this.eventListenerAndBindings()
   }
 
   renderHtml () {
     return `<h2 id='team${this.id}-title'>${this.name}</h2>
     <p>${this.description}</p>
-    <div class='card' style="width: 60rem;"'>
+    <div class='card' style="width: 95%;">
     <h3 class="card-header text-white" style="background-color: rgb(38, 101, 122); opacity: 80%; padding: 2px;">Events</h3>
     <ul>
-    <div class='card-group' id='team${this.id}-events-list'>
+    <div class='row row-cols-1 row-cols-md-2' style="width: 95%;" id='team${this.id}-events-list'>
     </div>
     </ul>
     </div>`

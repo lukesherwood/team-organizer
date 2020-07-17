@@ -1,7 +1,8 @@
 #NOTES
 
 ##Do Next
-navbar has links for event and team creation
+hamburger thing not working
+navbar links pop up form in middle of screen, background blurred or darkened
 edit function for event and maybe for team?
 validations and error handling
 .catch errors for fetch requests

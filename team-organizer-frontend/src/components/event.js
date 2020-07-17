@@ -12,6 +12,7 @@ class Event {
     this.adapter = new EventAdapter()
     this.renderEventLink()
     this.renderDeleteButton()
+    this.renderEventInfoButton()
     this.eventListenerAndBindings()
   }
 
@@ -21,10 +22,19 @@ class Event {
     cardDiv.className = 'card'
     this.eventLink = document.createElement('li')
     this.eventLink.id = `event${this.id}-div`
-    this.eventLink.innerHTML = `<h5 class='card-title' id='event${this.id}-title'><a href='#' id='event${this.id}-link'>${this.name}</a></h5>`
+    this.eventLink.innerHTML = `<h5 class='card-title' id='event${this.id}-title'>${this.name}</h5>`
     this.eventLink.className = 'card-body'
     team.appendChild(cardDiv)
     cardDiv.appendChild(this.eventLink)
+  }
+
+  renderEventInfoButton () {
+    const event = document.getElementById(`event${this.id}-title`)
+    this.eventInfoButton = document.createElement('button')
+    this.eventInfoButton.id = `event${this.id}-link`
+    this.eventInfoButton.innerText = 'More Info'
+    this.eventInfoButton.className = 'btn btn-outline-primary btn-sm float-right'
+    event.appendChild(this.eventInfoButton)
   }
 
   renderDeleteButton () {
@@ -32,7 +42,7 @@ class Event {
     const event = document.getElementById(`event${this.id}-title`)
     buttonContainer.id = `event${this.id}-delete-button-div`
     buttonContainer.className = 'float-right'
-    buttonContainer.innerHTML = `<button class='btn btn-outline-danger btn-sm' id="event-${this.id}delete-event-button">Delete</button>`
+    buttonContainer.innerHTML = `&nbsp<button class='btn btn-outline-danger btn-sm event-delete-button' id="event-${this.id}delete-event-button">Delete</button>`
     event.appendChild(buttonContainer)
   }
 
@@ -42,8 +52,10 @@ class Event {
       if (this.eventInfoContainer) {
         this.eventInfoContainer.innerHTML = ''
         this.eventInfoContainer = false
+        this.eventInfoButton.innerText = 'More Info'
       } else {
         this.renderEvent()
+        this.eventInfoButton.innerText = 'Less Info'
       }
     })
     const deleteButton = document.getElementById(`event-${this.id}delete-event-button`)
@@ -71,7 +83,6 @@ class Event {
     this.eventInfoContainer = document.getElementById(`event${this.id}-info-container`)
     const playersInfoContainer = document.createElement('div')
     playersInfoContainer.className = 'card'
-    playersInfoContainer.style = 'width: 25rem;'
     playersInfoContainer.id = `event${this.id}-players-container`
     playersInfoContainer.innerHTML = `
       <h5 class="card-header text-white" style="background-color: rgb(38, 101, 122); opacity: 80%; padding: 2px; text-align: center;">Players</h5>
