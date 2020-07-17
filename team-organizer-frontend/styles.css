@@ -10,3 +10,14 @@ a {
 ul {
     list-style-type: none;
 }
+
+.nav-item {
+    padding-left:1em
+}
+#create-team-form-container, #create-event-form-container {
+    padding-left:1em
+}
+
+.nav-item {
+    font-size: larger;
+}

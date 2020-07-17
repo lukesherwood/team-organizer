@@ -1,13 +1,10 @@
 #NOTES
 
 ##Do Next
-display events horzontally in columns
-players render to dom then once minimised and reopened dont appear
-warning before delete
+navbar has links for event and team creation
 edit function for event and maybe for team?
 validations and error handling
 .catch errors for fetch requests
-add banner/navbar
 if admin then links delete buttons show else not?
 
 
