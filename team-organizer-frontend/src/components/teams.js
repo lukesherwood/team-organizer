@@ -62,10 +62,14 @@ class Teams {
 
   renderCreateHtml () {
     return `
-    <label for="teamName">Team Name:</label><br>
-    <input type="text" id="teamName" name="teamName"><br>
-    <label for="teamDesc">Team Description:</label><br>
-    <input type="text" id="teamDesc" name="teamDesc"><br>
-    <input type="submit" id='create-team-submit' value="Submit">`
+    <div class="form-group">
+    <label for="teamName">Team Name:</label>
+    <input type="text" class="form-control" id="teamName" name="teamName">
+    </div>
+    <div class="form-group">
+    <label for="teamDesc">Team Description:</label>
+    <textarea id="teamDesc" class="form-control" name="teamDesc" rows="3"></textarea>
+    </div>
+    <input type="submit" id='create-team-submit' class="form-control" value="Submit">`
   }
 }

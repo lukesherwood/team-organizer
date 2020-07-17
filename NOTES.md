@@ -3,7 +3,7 @@
 ##Do Next
 hamburger thing not working
 navbar links pop up form in middle of screen, background blurred or darkened
-edit function for event and maybe for team?
+edit function for event
 validations and error handling
 .catch errors for fetch requests
 if admin then links delete buttons show else not?

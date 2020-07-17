@@ -17,7 +17,7 @@ class Team {
     listItem.innerHTML = this.renderHtml();
     list.appendChild(listItem);
     this.createEvents(this.rawEvents);
-    // this.renderDeleteButton()
+    // this.renderDeleteButton() disabled as probably not necessary
     // this.eventListenerAndBindings()
   }
 
