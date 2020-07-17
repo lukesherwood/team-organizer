@@ -1,10 +1,13 @@
 body {
     background-color: #f7f3ee;
-    color: rgb(73, 20, 7)
+    color: rgb(83, 44, 0);
 }
 a {
     text-decoration: none;
-    color: rgb(38, 101, 122);
+    color: rgb(83, 44, 0);
+}
+a:hover {
+    color: #266563;
 }
 
 ul {
@@ -12,16 +15,9 @@ ul {
 }
 
 .nav-item {
-    padding-left:1em
+    padding-left:1em;
+    font-size: larger;
 }
 #create-team-form-container, #create-event-form-container {
     padding-left:1em
-}
-
-.nav-item {
-    font-size: larger;
-}
-
-.event-delete-button {
-    /* padding-left:4em; */
 }

@@ -24,10 +24,10 @@ class Team {
   renderHtml () {
     return `<h2 id='team${this.id}-title'>${this.name}</h2>
     <p>${this.description}</p>
-    <div class='card' style="width: 95%;">
-    <h3 class="card-header text-white" style="background-color: rgb(38, 101, 122); opacity: 80%; padding: 2px;">Events</h3>
+    <div class='card' style="width: 98%;">
+    <h3 class="card-header text-white" style="background-color: #266563; opacity: 75%; padding: 2px;">Events</h3>
     <ul>
-    <div class='row row-cols-1 row-cols-md-2' style="width: 95%;" id='team${this.id}-events-list'>
+    <div class='row row-cols-1 row-cols-md-2' style="width: 98%;" id='team${this.id}-events-list'>
     </div>
     </ul>
     </div>`
