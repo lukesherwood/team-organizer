@@ -21,8 +21,13 @@ class Events {
   }
 
   renderCreateEventForm () {
-    this.createForm = document.getElementById('create-event-form')
+    const eventFormContainer = document.getElementById('form-container') || document.createElement('div')
+    eventFormContainer.id = 'form-container'
+    const topDiv = document.getElementById('team-list')
+    topDiv.prepend(eventFormContainer)
+    this.createForm = document.createElement('div')
     this.createForm.innerHTML = this.renderCreateHtml()
+    eventFormContainer.appendChild(this.createForm)
     this.addTeamOptionsToForm()
     this.createForm.addEventListener('submit', (event) => {
       event.preventDefault()
@@ -62,6 +67,10 @@ class Events {
 
   renderCreateHtml () {
     return `
+    <div class="card" style="width:49%; float:right;">
+    <h4 class="card-header text-white" style="background-color: #266563; opacity: 75%; padding: 2px;">Create a New Event</h4>
+    <div class="card-body">
+    <form id='create-event-form'>
     <div class="form-group">
     <label for="eventName">Event Name:</label>
     <input type="text" id="eventName" class="form-control" name="eventName" required>
@@ -88,6 +97,10 @@ class Events {
     <option selected>Choose...</option>
     </select>
     </div>
-    <input type="submit" id='create-event-submit' class="btn btn-outline-primary mb-2" value="Submit">`
+    <input type="submit" id='create-event-submit' class="btn btn-outline-primary mb-2" value="Submit">
+    </form>
+    </div>
+    </div>
+    `
   }
 }

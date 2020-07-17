@@ -39,7 +39,12 @@ class Teams {
   }
 
   renderCreateTeamForm () {
-    this.createTeamForm = document.getElementById('create-team-form')
+    const teamFormContainer = document.getElementById('form-container') || document.createElement('div')
+    teamFormContainer.id = 'form-container'
+    const topDiv = document.getElementById('team-list')
+    topDiv.prepend(teamFormContainer)
+    this.createTeamForm = document.createElement('div')
+    teamFormContainer.appendChild(this.createTeamForm)
     this.createTeamForm.innerHTML = this.renderCreateHtml()
     this.createTeamForm.addEventListener('submit', (event) => {
       event.preventDefault()
@@ -62,6 +67,10 @@ class Teams {
 
   renderCreateHtml () {
     return `
+    <div class="card" style="width:49%; float:left;">
+    <h4 class="card-header text-white" style="background-color: #266563; opacity: 75%; padding: 2px;">Create a New Team</h4>
+    <div class="card-body">
+    <form id='create-team-form'>
     <div class="form-group">
     <label for="teamName">Team Name:</label>
     <input type="text" class="form-control" id="teamName" name="teamName" required>
@@ -70,6 +79,10 @@ class Teams {
     <label for="teamDesc">Team Description:</label>
     <textarea id="teamDesc" class="form-control" name="teamDesc" rows="3"></textarea>
     </div>
-    <input type="submit" id='create-team-submit' class="btn btn-outline-primary mb-2" value="Submit">`
+    <input type="submit" id='create-team-submit' class="btn btn-outline-primary mb-2" value="Submit">
+    </form>
+    </div>
+    </div>
+    `
   }
 }
