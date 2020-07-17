@@ -56,13 +56,16 @@ class Players {
   playerFormHtml () { 
     return `<br> 
     <form class='player-form'>
-    <label for="playerName">Enter your Name:</label><br>
-    <input type="text" id="playerName" name="playerName"><br>
-    <label for="email">Enter your Email:</label><br>
-    <input type="text" id="email" name="email"><br>
-    <input type="submit" id='create-player-submit' value="Submit">
+    <div class="form-group">
+    <label for="playerName">Enter your Name:</label>
+    <input type="text" id="playerName" class="form-control" name="playerName" required>
+    </div>
+    <div class="form-group">
+    <label for="email">Enter your Email:</label>
+    <input type="text" id="email" class="form-control" name="email" required>
+    </div>
+    <input type="submit" id='create-player-submit' class="btn btn-outline-primary mb-2" value="Submit">
     </form>
-    <br>
     `
   }
 }

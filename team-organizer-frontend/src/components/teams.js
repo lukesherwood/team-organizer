@@ -64,12 +64,12 @@ class Teams {
     return `
     <div class="form-group">
     <label for="teamName">Team Name:</label>
-    <input type="text" class="form-control" id="teamName" name="teamName">
+    <input type="text" class="form-control" id="teamName" name="teamName" required>
     </div>
     <div class="form-group">
     <label for="teamDesc">Team Description:</label>
     <textarea id="teamDesc" class="form-control" name="teamDesc" rows="3"></textarea>
     </div>
-    <input type="submit" id='create-team-submit' class="form-control" value="Submit">`
+    <input type="submit" id='create-team-submit' class="btn btn-outline-primary mb-2" value="Submit">`
   }
 }

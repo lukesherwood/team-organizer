@@ -62,19 +62,32 @@ class Events {
 
   renderCreateHtml () {
     return `
-    <label for="eventName">Event Name:</label><br>
-    <input type="text" id="eventName" name="eventName"><br>
-    <label for="eventDesc">Event Description:</label><br>
-    <input type="text" id="eventDesc" name="eventDesc"><br>
-    <label for="location">Location:</label><br>
-    <input type="text" id="location" name="location"><br>
-    <label for="startTime">Start Time:</label><br>
-    <input type="datetime" id="startTime" name="startTime" placeholder="HH:MM DD/MM/YYYY"><br>
-    <label for="endTime">End Time:</label><br>
-    <input type="datetime" id="endTime" name="endTime" placeholder="HH:MM DD/MM/YYYY"><br>
-    <label for="teamId">Select Team:</label><br>
-    <select id="teamId" name="teamId">
-    </select><br>
-    <input type="submit" id='create-event-submit' value="Submit">`
+    <div class="form-group">
+    <label for="eventName">Event Name:</label>
+    <input type="text" id="eventName" class="form-control" name="eventName" required>
+    </div>
+    <div class="form-group">
+    <label for="eventDesc">Event Description:</label>
+    <input type="text" id="eventDesc" class="form-control" name="eventDesc">
+    </div>
+    <div class="form-group">
+    <label for="location">Location:</label>
+    <input type="text" id="location" class="form-control" name="location" required>
+    </div>
+    <div class="form-group">
+    <label for="startTime">Start Time:</label>
+    <input type="datetime" id="startTime" class="form-control" name="startTime" placeholder="HH:MM DD/MM/YYYY" required>
+    </div>
+    <div class="form-group">
+    <label for="endTime">End Time:</label>
+    <input type="datetime" id="endTime" class="form-control" name="endTime" placeholder="HH:MM DD/MM/YYYY" required>
+    </div>
+    <div class="form-group">
+    <label for="teamId">Select Team:</label>
+    <select id="teamId" class="form-control" name="teamId" required>
+    <option selected>Choose...</option>
+    </select>
+    </div>
+    <input type="submit" id='create-event-submit' class="btn btn-outline-primary mb-2" value="Submit">`
   }
 }
