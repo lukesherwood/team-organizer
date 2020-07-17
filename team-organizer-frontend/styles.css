@@ -1,6 +1,15 @@
 body {
     background-color: #f7f3ee;
     color: rgb(83, 44, 0);
+    background-image: url('/team-organizer/img/dimitri-houtteman-cMYFJ95TY_E-unsplash.jpg');
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
 }
 a {
     text-decoration: none;
@@ -21,3 +30,4 @@ ul {
 #create-team-form-container, #create-event-form-container {
     padding-left:1em
 }
+ 

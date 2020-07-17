@@ -1,12 +1,9 @@
 #NOTES
 
 ##Do Next
-hamburger thing not working
 navbar links pop up form in middle of screen, background blurred or darkened
 edit function for event
-validations and error handling
-.catch errors for fetch requests
-if admin then links delete buttons show else not?
+.catch errors for fetch requests and error handling
 
 
 ##APP TASKS
@@ -20,7 +17,8 @@ if admin then links delete buttons show else not?
 - forms for creating an event
 
 ##Stretch
-could i have some kid of log in feature?
+hamburger thing not working
+could i have some kid of log in feature? if admin then links delete buttons show else not?
 users can have many teams (will need a join table - user_teams)
 add reoccurring events show as a badge (reoccuring) (one off) etc - selected by checkbox in form
 only show current events

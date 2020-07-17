@@ -53,7 +53,7 @@ class Players {
     addPlayerButton.click() // closes form
   }
 
-  playerFormHtml () { 
+  playerFormHtml () {
     return `<br> 
     <form class='player-form'>
     <div class="form-group">
