@@ -27,25 +27,23 @@ class Teams {
   eventListenerAndBindings () { // listening for click on create team button
     this.createTeamButton = document.getElementById('create-team-button')
     this.createTeamButton.addEventListener('click', () => {
-      if (this.createTeamForm) { // collapses form if already open
-        this.createTeamForm.innerHTML = ''
-        this.createTeamButton.innerText = 'Create a new team'
-        this.createTeamForm = false
-      } else {
-        this.renderCreateTeamForm()
-        this.createTeamButton.innerText = 'Click here to close'
-      }
+      this.renderCreateTeamForm()
+      this.createFormListener()
+    })
+  }
+
+  createFormListener () {
+    const closeTeamFormButton = document.getElementById('close-team-create-form')
+    closeTeamFormButton.addEventListener('click', () => {
+      this.teamFormContainer.innerHTML = ''
+      this.teamFormContainer = false
     })
   }
 
   renderCreateTeamForm () {
-    const teamFormContainer = document.getElementById('form-container') || document.createElement('div')
-    teamFormContainer.id = 'form-container'
-    const topDiv = document.getElementById('team-list')
-    topDiv.prepend(teamFormContainer)
-    this.createTeamForm = document.createElement('div')
-    teamFormContainer.appendChild(this.createTeamForm)
-    this.createTeamForm.innerHTML = this.renderCreateHtml()
+    this.teamFormContainer = document.getElementById('form-container')
+    this.teamFormContainer.innerHTML = this.renderCreateHtml()
+    this.createTeamForm = document.getElementById('create-team-form')
     this.createTeamForm.addEventListener('submit', (event) => {
       event.preventDefault()
       this.processCreateTeamForm()
@@ -62,13 +60,14 @@ class Teams {
       teamDesc.value = ''
       newTeam.renderTeam()
     })
-    document.getElementById('create-team-button').click() // collapses form
+    document.getElementById('create-team-button').click() // need to change this!!!!
   }
 
   renderCreateHtml () {
     return `
-    <div class="card" style="width:49%; float:left;">
-    <h4 class="card-header text-white" style="background-color: #266563; opacity: 75%; padding: 2px;">Create a New Team</h4>
+    <div class="card">
+    <h4 class="card-header text-white" style="background-color: #266563; opacity: 75%; padding: 2px;">Create a New Team
+    <button class='btn btn-danger' style='float:right;' id="close-team-create-form">Close</button></h4>
     <div class="card-body">
     <form id='create-team-form'>
     <div class="form-group">

@@ -1,8 +1,9 @@
 #NOTES
 
 ##Do Next
-navbar links pop up form in middle of screen, background blurred or darkened
-edit function for event
+add button to close create forms, instead of changing link text
+change the way forms are rendered
+edit function for event - option to remove all players
 .catch errors for fetch requests and error handling
 
 
