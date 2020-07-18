@@ -7,29 +7,25 @@ class Events {
 
   eventListenerAndBindings () {
     this.createEventButton = document.getElementById('create-event-button')
-    this.createEventButton.addEventListener('click', (event) => {
-      event.preventDefault()
-      if (this.createForm) { // collapses form if already open
-        this.createForm.innerHTML = ''
-        this.createEventButton.innerText = 'Create a New Event'
-        this.createForm = false
-      } else {
-        this.renderCreateEventForm()
-        this.createEventButton.innerText = 'Click here to close'
-      }
+    this.createEventButton.addEventListener('click', () => {
+      this.renderCreateEventForm()
+      this.createFormListener()
+    })
+  }
+
+  createFormListener () {
+    const closeEventFormButton = document.getElementById('close-event-create-form')
+    closeEventFormButton.addEventListener('click', () => {
+      this.eventFormContainer.innerHTML = ''
     })
   }
 
   renderCreateEventForm () {
-    const eventFormContainer = document.getElementById('form-container') || document.createElement('div')
-    eventFormContainer.id = 'form-container'
-    const topDiv = document.getElementById('team-list')
-    topDiv.prepend(eventFormContainer)
-    this.createForm = document.createElement('div')
-    this.createForm.innerHTML = this.renderCreateHtml()
-    eventFormContainer.appendChild(this.createForm)
+    this.eventFormContainer = document.getElementById('form-container')
+    this.eventFormContainer.innerHTML = this.renderCreateHtml()
+    this.createEventForm = document.getElementById('create-event-form')
     this.addTeamOptionsToForm()
-    this.createForm.addEventListener('submit', (event) => {
+    this.createEventForm.addEventListener('submit', (event) => {
       event.preventDefault()
       this.processCreateEventForm()
     })
@@ -62,15 +58,22 @@ class Events {
       teamId.value = ''
       newEvent.renderEvent()
     })
-    document.getElementById('create-event-button').click() // collapses form
+    document.getElementById('close-event-create-form').click() // collapses form
   }
 
   renderCreateHtml () {
     return `
-    <div class="card" style="width:49%; float:right;">
-    <h4 class="card-header text-white" style="background-color: #266563; opacity: 75%; padding: 2px;">Create a New Event</h4>
+    <div class="card">
+    <h4 class="card-header text-white" style="background-color: #266563; opacity: 75%; padding: 2px;">Create a New Event
+    <button class='btn btn-danger' style='float:right;' id="close-event-create-form">Close</button></h4>
     <div class="card-body">
     <form id='create-event-form'>
+    <div class="form-group">
+    <label for="teamId">Select Team:</label>
+    <select id="teamId" class="form-control" name="teamId" required>
+    <option selected>Choose...</option>
+    </select>
+    </div>
     <div class="form-group">
     <label for="eventName">Event Name:</label>
     <input type="text" id="eventName" class="form-control" name="eventName" required>
@@ -90,12 +93,6 @@ class Events {
     <div class="form-group">
     <label for="endTime">End Time:</label>
     <input type="datetime" id="endTime" class="form-control" name="endTime" placeholder="HH:MM DD/MM/YYYY" required>
-    </div>
-    <div class="form-group">
-    <label for="teamId">Select Team:</label>
-    <select id="teamId" class="form-control" name="teamId" required>
-    <option selected>Choose...</option>
-    </select>
     </div>
     <input type="submit" id='create-event-submit' class="btn btn-outline-primary mb-2" value="Submit">
     </form>

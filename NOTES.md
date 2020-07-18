@@ -1,8 +1,7 @@
 #NOTES
 
 ##Do Next
-add button to close create forms, instead of changing link text
-change the way forms are rendered
+when event created more info button needs to be changed to less info
 edit function for event - option to remove all players
 .catch errors for fetch requests and error handling
 

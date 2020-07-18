@@ -36,7 +36,6 @@ class Teams {
     const closeTeamFormButton = document.getElementById('close-team-create-form')
     closeTeamFormButton.addEventListener('click', () => {
       this.teamFormContainer.innerHTML = ''
-      this.teamFormContainer = false
     })
   }
 
@@ -60,7 +59,7 @@ class Teams {
       teamDesc.value = ''
       newTeam.renderTeam()
     })
-    document.getElementById('create-team-button').click() // need to change this!!!!
+    document.getElementById('close-team-create-form').click() // collapses form
   }
 
   renderCreateHtml () {
