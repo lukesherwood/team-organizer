@@ -1,6 +1,7 @@
 #NOTES
 
 ##Do Next
+fix event button group messed up with long titles
 edit function for event - option to remove all players
 .catch errors for fetch requests and error handling
 

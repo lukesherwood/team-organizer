@@ -11,9 +11,14 @@ class Event {
     this.players = []
     this.adapter = new EventAdapter()
     this.renderEventLink()
+    this.renderButtons()
+    this.eventListenerAndBindings()
+  }
+
+  renderButtons () {
     this.renderDeleteButton()
     this.renderEventInfoButton()
-    this.eventListenerAndBindings()
+    this.renderUpdateButton()
   }
 
   renderEventLink () {
@@ -28,22 +33,29 @@ class Event {
     cardDiv.appendChild(this.eventLink)
   }
 
+  renderDeleteButton () {
+    this.buttonContainer = document.createElement('div')
+    const event = document.getElementById(`event${this.id}-div`)
+    this.buttonContainer.id = `event${this.id}-delete-button-div`
+    this.buttonContainer.className = 'float-right btn-group'
+    this.buttonContainer.innerHTML = `<button class='btn btn-outline-danger btn-sm event-delete-button' id="event-${this.id}delete-event-button">Delete</button>`
+    event.prepend(this.buttonContainer)
+  }
+
   renderEventInfoButton () {
-    const event = document.getElementById(`event${this.id}-title`)
     this.eventInfoButton = document.createElement('button')
     this.eventInfoButton.id = `event${this.id}-link`
     this.eventInfoButton.innerText = 'More Info'
     this.eventInfoButton.className = 'btn btn-outline-primary btn-sm float-right'
-    event.appendChild(this.eventInfoButton)
+    this.buttonContainer.appendChild(this.eventInfoButton)
   }
 
-  renderDeleteButton () {
-    const buttonContainer = document.createElement('div')
-    const event = document.getElementById(`event${this.id}-title`)
-    buttonContainer.id = `event${this.id}-delete-button-div`
-    buttonContainer.className = 'float-right'
-    buttonContainer.innerHTML = `&nbsp<button class='btn btn-outline-danger btn-sm event-delete-button' id="event-${this.id}delete-event-button">Delete</button>`
-    event.appendChild(buttonContainer)
+  renderUpdateButton () {
+    this.eventUpdateButton = document.createElement('button')
+    this.eventUpdateButton.id = `event-${this.id}update-event-button`
+    this.eventUpdateButton.className = 'btn btn-outline-warning btn-sm event-update-button'
+    this.eventUpdateButton.innerText = 'Update'
+    this.buttonContainer.appendChild(this.eventUpdateButton)
   }
 
   eventListenerAndBindings () {
@@ -70,7 +82,6 @@ class Event {
   }
 
   renderEvent () {
-    console.log('fired')
     this.eventLinkDiv = document.getElementById(`event${this.id}-div`)
     this.eventInfoContainer = document.getElementById(`event${this.id}-info-container`) || document.createElement('div')
     this.eventInfoContainer.id = `event${this.id}-info-container`
