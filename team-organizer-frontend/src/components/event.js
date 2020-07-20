@@ -70,6 +70,7 @@ class Event {
   }
 
   renderEvent () {
+    console.log('fired')
     this.eventLinkDiv = document.getElementById(`event${this.id}-div`)
     this.eventInfoContainer = document.getElementById(`event${this.id}-info-container`) || document.createElement('div')
     this.eventInfoContainer.id = `event${this.id}-info-container`

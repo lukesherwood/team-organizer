@@ -1,7 +1,6 @@
 #NOTES
 
 ##Do Next
-when event created more info button needs to be changed to less info
 edit function for event - option to remove all players
 .catch errors for fetch requests and error handling
 

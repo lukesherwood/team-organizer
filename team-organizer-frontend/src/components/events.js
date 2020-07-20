@@ -56,7 +56,6 @@ class Events {
       startTime.value = ''
       endTime.value = ''
       teamId.value = ''
-      newEvent.renderEvent()
     })
     document.getElementById('close-event-create-form').click() // collapses form
   }
