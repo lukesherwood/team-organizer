@@ -79,6 +79,13 @@ class Event {
         })
       }
     })
+    const updateButton = document.getElementById(`event-${this.id}update-event-button`)
+    updateButton.addEventListener('click', () => {
+      console.log('updated ')
+      // this.adapter.updateEvent(this.team.id, this.id).then(() => {
+      // need to update the dom with new values copy from create??
+    })
+    // })
   }
 
   renderEvent () {

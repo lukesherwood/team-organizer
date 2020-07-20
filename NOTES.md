@@ -1,8 +1,12 @@
 #NOTES
 
 ##Do Next
-fix event button group messed up with long titles
-edit function for event - option to remove all players
+edit function - button event listener
+- render form
+- process form
+- adapter update function
+- rails controller update method
+
 .catch errors for fetch requests and error handling
 
 
