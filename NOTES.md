@@ -1,11 +1,13 @@
 #NOTES
 
 ##Do Next
-edit function - button event listener
+edit function
 - render form
 - process form
 - adapter update function
 - rails controller update method
+- clicking update closes more info
+- update datetime needs to be corrected
 
 .catch errors for fetch requests and error handling
 

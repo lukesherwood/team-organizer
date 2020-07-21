@@ -81,11 +81,21 @@ class Event {
     })
     const updateButton = document.getElementById(`event-${this.id}update-event-button`)
     updateButton.addEventListener('click', () => {
-      console.log('updated ')
       // this.adapter.updateEvent(this.team.id, this.id).then(() => {
-      // need to update the dom with new values copy from create??
+      this.renderUpdateForm()
     })
     // })
+  }
+
+  renderUpdateForm () {
+    const event = document.getElementById(`event${this.id}-div`)
+    this.updateForm = document.getElementById(`event${this.id}-update-form-container`) || document.createElement('div')
+    this.updateForm.className = 'card'
+    this.updateForm.id = `event${this.id}-update-form-container`
+    this.updateForm.innerHTML = this.updateFormHtml()
+    event.appendChild(this.updateForm)
+    this.updateEventListeners()
+    // then call event listener for submit and close button
   }
 
   renderEvent () {
@@ -96,6 +106,13 @@ class Event {
     this.eventLinkDiv.appendChild(this.eventInfoContainer)
     this.renderPlayersHtml()
     this.createPlayers()
+  }
+
+  updateEventListeners () {
+    const closeUpdateFormButton = document.getElementById(`close-event${this.id}-create-form`)
+    closeUpdateFormButton.addEventListener('click', () => {
+      this.updateForm.innerHTML = ''
+    })
   }
 
   renderPlayersHtml () {
@@ -145,6 +162,37 @@ class Event {
     return `<p>${this.convertDateTime(this.startTime)} - ${this.convertDateTime(this.endTime)} </p> 
     <p>${this.location}</p>
     <p>${this.description}</p>
+    `
+  }
+
+  updateFormHtml () { // need to add placeholders
+    return `
+    <div class="card-body">
+    <form id='update-event-form'>
+    <div class="form-group">
+    <label for="eventName">Event Name:</label>
+    <input type="text" id="eventName" class="form-control" name="eventName" value="${this.name}"required>
+    </div>
+    <div class="form-group">
+    <label for="eventDesc">Event Description:</label>
+    <input type="text" id="eventDesc" class="form-control" name="eventDesc" value="${this.description}">
+    </div>
+    <div class="form-group">
+    <label for="location">Location:</label>
+    <input type="text" id="location" class="form-control" name="location" value="${this.location}" required>
+    </div>
+    <div class="form-group">
+    <label for="startTime">Start Time:</label>
+    <input type="datetime" id="startTime" class="form-control" name="startTime" value="${this.convertDateTime(this.startTime)}" required>
+    </div>
+    <div class="form-group">
+    <label for="endTime">End Time:</label>
+    <input type="datetime" id="endTime" class="form-control" name="endTime" value="${this.convertDateTime(this.endTime)}" required>
+    </div>
+    <input type="submit" id='update-event-submit' class="btn btn-outline-primary mb-2" value="Update">
+    <button class='btn btn-outline-danger' style='float:right;' id="close-event${this.id}-create-form">Close</button>
+    </form>
+    </div>
     `
   }
 }
