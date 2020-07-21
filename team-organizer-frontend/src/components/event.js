@@ -75,12 +75,15 @@ class Event {
       if (confirm('Are you sure you want to remove this event?')) {
         this.adapter.destroyEvent(this.team.id, this.id).then(() => {
           const eventInfo = document.getElementById(`event${this.id}-div`)
-          eventInfo.parentNode.removeChild(eventInfo)
+          eventInfo.parentNode.remove()
         })
       }
     })
     const updateButton = document.getElementById(`event-${this.id}update-event-button`)
     updateButton.addEventListener('click', () => {
+      if (this.eventInfoContainer) {
+        this.eventLinks.click() // closes more info if open
+      }
       this.renderUpdateForm()
     })
   }
@@ -125,7 +128,7 @@ class Event {
     const endTime = document.getElementById('endTime')
     this.adapter.updateEvent(eventName.value, eventDesc.value, location.value, startTime.value, endTime.value, this.team.id, this.id).then((event) => {
       const oldEventCard = document.getElementById(`event${this.id}-div`)
-      oldEventCard.parentNode.remove() //delete old event
+      oldEventCard.parentNode.remove() // delete old event card
       const updatedEvent = new Event(event) // create new event for dom
       this.eventLinks.click() // open more info
     })

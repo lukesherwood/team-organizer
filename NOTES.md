@@ -1,12 +1,8 @@
 #NOTES
 
 ##Do Next
-edit function
-- process form
-- adapter update function
-- rails controller update method
-- clicking update closes more info
-
+opening update closes more info
+swap button order
 .catch errors for fetch requests and error handling
 
 
