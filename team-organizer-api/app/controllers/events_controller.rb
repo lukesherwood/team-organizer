@@ -36,9 +36,7 @@ class EventsController < ApplicationController
     def update
         @event = Event.find(event_params[:id])
         if @event.update(event_params)
-            render body: @event, status: 200
-        else
-            render json: {message: 'Error updating event'} #render json: {message: 'Event not created'}
+            render json: @event, status: 200
         end
     end
 

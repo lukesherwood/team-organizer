@@ -59,8 +59,8 @@ class Event {
   }
 
   eventListenerAndBindings () {
-    const eventLinks = document.getElementById(`event${this.id}-link`)
-    eventLinks.addEventListener('click', () => {
+    this.eventLinks = document.getElementById(`event${this.id}-link`)
+    this.eventLinks.addEventListener('click', () => {
       if (this.eventInfoContainer) {
         this.eventInfoContainer.innerHTML = ''
         this.eventInfoContainer = false
@@ -123,16 +123,12 @@ class Event {
     const location = document.getElementById('location')
     const startTime = document.getElementById('startTime')
     const endTime = document.getElementById('endTime')
-    this.adapter.updateEvent(eventName.value, eventDesc.value, location.value, startTime.value, endTime.value, this.team.id, this.id).then(() => {
-      // const newEvent = new Event(event) // need to render changes to dom?
-      eventName.value = ''
-      eventDesc.value = ''
-      location.value = ''
-      startTime.value = ''
-      endTime.value = ''
+    this.adapter.updateEvent(eventName.value, eventDesc.value, location.value, startTime.value, endTime.value, this.team.id, this.id).then((event) => {
+      const oldEventCard = document.getElementById(`event${this.id}-div`)
+      oldEventCard.parentNode.remove() //delete old event
+      const updatedEvent = new Event(event) // create new event for dom
+      this.eventLinks.click() // open more info
     })
-    document.getElementById('close-event-create-form').click() // collapses form
-    // want to open more info here?
   }
 
   renderPlayersHtml () {
