@@ -81,10 +81,8 @@ class Event {
     })
     const updateButton = document.getElementById(`event-${this.id}update-event-button`)
     updateButton.addEventListener('click', () => {
-      // this.adapter.updateEvent(this.team.id, this.id).then(() => {
       this.renderUpdateForm()
     })
-    // })
   }
 
   renderUpdateForm () {
@@ -95,7 +93,6 @@ class Event {
     this.updateForm.innerHTML = this.updateFormHtml()
     event.appendChild(this.updateForm)
     this.updateEventListeners()
-    // then call event listener for submit and close button
   }
 
   renderEvent () {
@@ -113,6 +110,29 @@ class Event {
     closeUpdateFormButton.addEventListener('click', () => {
       this.updateForm.innerHTML = ''
     })
+    this.updateEventForm = document.getElementById(`update-event${this.id}-form`)
+    this.updateEventForm.addEventListener('submit', (event) => {
+      event.preventDefault()
+      this.processUpdateEventForm()
+    })
+  }
+
+  processUpdateEventForm () {
+    const eventName = document.getElementById('eventName')
+    const eventDesc = document.getElementById('eventDesc')
+    const location = document.getElementById('location')
+    const startTime = document.getElementById('startTime')
+    const endTime = document.getElementById('endTime')
+    this.adapter.updateEvent(eventName.value, eventDesc.value, location.value, startTime.value, endTime.value, this.team.id, this.id).then(() => {
+      // const newEvent = new Event(event) // need to render changes to dom?
+      eventName.value = ''
+      eventDesc.value = ''
+      location.value = ''
+      startTime.value = ''
+      endTime.value = ''
+    })
+    document.getElementById('close-event-create-form').click() // collapses form
+    // want to open more info here?
   }
 
   renderPlayersHtml () {
@@ -136,14 +156,14 @@ class Event {
 
   convertDateTime (date) {
     function pad (n) {
-      if (n === 3) {
+      if (n === 3) { // ternary here?
         return n + '0'
       } else {
         return n < 10 ? '0' + n : n
       }
     }
     function convertHours (hour) {
-      if (hour < 12) {
+      if (hour < 12) { // ternary here?
         return hour + 12
       } else {
         return hour - 12
@@ -165,10 +185,10 @@ class Event {
     `
   }
 
-  updateFormHtml () { // need to add placeholders
+  updateFormHtml () {
     return `
     <div class="card-body">
-    <form id='update-event-form'>
+    <form id='update-event${this.id}-form'>
     <div class="form-group">
     <label for="eventName">Event Name:</label>
     <input type="text" id="eventName" class="form-control" name="eventName" value="${this.name}"required>

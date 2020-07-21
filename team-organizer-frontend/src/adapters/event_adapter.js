@@ -39,4 +39,27 @@ class EventAdapter {
       body: JSON.stringify({ event })
     })
   }
+
+  updateEvent (eventName, eventDesc, location, startTime, endTime, teamId, eventId) {
+    const patchUrl = this.baseUrl + `${teamId}/events/${eventId}`
+    const event = {
+      name: eventName,
+      description: eventDesc,
+      location: location,
+      start_time: startTime,
+      end_time: endTime,
+      team_id: teamId,
+      id: eventId
+    }
+    return fetch(patchUrl, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({ event })
+    }).then(res => res.json())
+      .catch(error => {
+        return alert(error.message)
+      })
+  }
 }
