@@ -1,9 +1,10 @@
 #NOTES
 
 ##Do Next
-opening update closes more info
 swap button order
 .catch errors for fetch requests and error handling
+blog post
+video walk-through
 
 
 ##APP TASKS

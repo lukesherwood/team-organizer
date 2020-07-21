@@ -1,28 +1,36 @@
-class Events {
+class Events { // this class handles the create event form
   constructor () {
     this.adapter = new EventAdapter()
     this.teamAdapter = new TeamAdapter()
     this.eventListenerAndBindings()
   }
 
+  // event listeners
+
   eventListenerAndBindings () {
+    this.createEventButtonListener()
+  }
+
+  createEventButtonListener () {
     this.createEventButton = document.getElementById('create-event-button')
     this.createEventButton.addEventListener('click', () => {
       this.renderCreateEventForm()
-      this.createFormListener()
+      this.closeCreateFormListener()
     })
   }
 
-  createFormListener () {
+  closeCreateFormListener () {
     const closeEventFormButton = document.getElementById('close-event-create-form')
     closeEventFormButton.addEventListener('click', () => {
       this.eventFormContainer.innerHTML = ''
     })
   }
 
+  // Create event form render functions
+
   renderCreateEventForm () {
     this.eventFormContainer = document.getElementById('form-container')
-    this.eventFormContainer.innerHTML = this.renderCreateHtml()
+    this.eventFormContainer.innerHTML = this.CreateEventFormHtml()
     this.createEventForm = document.getElementById('create-event-form')
     this.addTeamOptionsToForm()
     this.createEventForm.addEventListener('submit', (event) => {
@@ -41,26 +49,7 @@ class Events {
     })
   }
 
-  processCreateEventForm () {
-    const eventName = document.getElementById('eventName')
-    const eventDesc = document.getElementById('eventDesc')
-    const location = document.getElementById('location')
-    const startTime = document.getElementById('startTime')
-    const endTime = document.getElementById('endTime')
-    const teamId = document.getElementById('teamId')
-    this.adapter.createEvent(eventName.value, eventDesc.value, location.value, startTime.value, endTime.value, teamId.value).then(event => {
-      const newEvent = new Event(event)
-      eventName.value = ''
-      eventDesc.value = ''
-      location.value = ''
-      startTime.value = ''
-      endTime.value = ''
-      teamId.value = ''
-    })
-    document.getElementById('close-event-create-form').click() // collapses form
-  }
-
-  renderCreateHtml () {
+  CreateEventFormHtml () {
     return `
     <div class="card">
     <h4 class="card-header text-white" style="background-color: #266563; opacity: 75%; padding: 2px;">Create a New Event
@@ -98,5 +87,26 @@ class Events {
     </div>
     </div>
     `
+  }
+
+  // Process create form functions
+
+  processCreateEventForm () {
+    const eventName = document.getElementById('eventName')
+    const eventDesc = document.getElementById('eventDesc')
+    const location = document.getElementById('location')
+    const startTime = document.getElementById('startTime')
+    const endTime = document.getElementById('endTime')
+    const teamId = document.getElementById('teamId')
+    this.adapter.createEvent(eventName.value, eventDesc.value, location.value, startTime.value, endTime.value, teamId.value).then(event => {
+      const newEvent = new Event(event)
+      eventName.value = ''
+      eventDesc.value = ''
+      location.value = ''
+      startTime.value = ''
+      endTime.value = ''
+      teamId.value = ''
+    })
+    document.getElementById('close-event-create-form').click() // collapses form
   }
 }
