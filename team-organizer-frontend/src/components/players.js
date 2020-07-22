@@ -1,8 +1,8 @@
-class Players { // adds listeners for add player buttons then manages the create form
+class Players { // this class manages the create player form
   constructor (event) {
     this.adapter = new UserAdapter()
     this.eventListenerAndBindings()
-    this.event = event // can we remove this and move it to player class?
+    this.event = event
   }
 
   // Event listeners

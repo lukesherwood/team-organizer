@@ -17,6 +17,9 @@ class UserAdapter {
       },
       body: JSON.stringify({ user })
     }).then(res => res.json())
+      .catch(error => {
+        return alert(error.message)
+      })
   }
 
   destroyPlayer (eventId, playerId) {

@@ -22,6 +22,9 @@ class TeamAdapter {
       },
       body: JSON.stringify({ team })
     }).then(res => res.json())
+      .catch(error => {
+        return alert(error.message)
+      })
   }
 
   destroyTeam (teamId) {

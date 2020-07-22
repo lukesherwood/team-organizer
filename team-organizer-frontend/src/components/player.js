@@ -7,7 +7,6 @@ class Player { // Renders players and manages player delete
     this.email = playerJSON.email
     // this.phoneNumber = playerJSON.phone_number
     this.renderPlayers()
-    this.renderDeleteButton()
     this.eventListenerAndBindings()
   }
 
@@ -39,6 +38,7 @@ class Player { // Renders players and manages player delete
     playerHtml.style = 'padding:5px;'
     playerHtml.innerText = this.name
     this.playersContainer.appendChild(playerHtml)
+    this.renderDeleteButton()
   }
 
   renderDeleteButton () {
