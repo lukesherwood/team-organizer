@@ -1,5 +1,5 @@
 /* eslint-disable semi */
-class Team {
+class Team { // renders each team and calls create events.
   constructor (teamJSON) {
     this.id = teamJSON.id;
     this.name = teamJSON.name;
@@ -14,14 +14,14 @@ class Team {
     const listItem = document.createElement('li');
     listItem.className = 'list-group-item';
     listItem.id = `team${this.id}-item`;
-    listItem.innerHTML = this.renderHtml();
+    listItem.innerHTML = this.teamInfoHtml();
     list.appendChild(listItem);
     this.createEvents(this.rawEvents);
-    // this.renderDeleteButton() disabled as probably not necessary
+    // this.renderDeleteButton() // disabled as probably not necessary
     // this.eventListenerAndBindings()
   }
 
-  renderHtml () {
+  teamInfoHtml () {
     return `<h2 id='team${this.id}-title'>${this.name}</h2>
     <p>${this.description}</p>
     <div class='card' style="width: 98%;">
@@ -39,7 +39,7 @@ class Team {
     });
   }
 
-  renderDeleteButton () {
+  renderDeleteButton () { // this is for delete button which is currently disabled until user log in completed
     const buttonContainer = document.createElement('div')
     buttonContainer.id = `team${this.id}-delete-button-div`
     buttonContainer.className = 'float-right'
@@ -48,10 +48,10 @@ class Team {
     team.appendChild(buttonContainer)
   }
 
-  eventListenerAndBindings () {
+  eventListenerAndBindings () { // this is for delete button which is currently disabled until user log in completed
     const deleteButton = document.getElementById(`team-${this.id}delete-event-button`)
     deleteButton.addEventListener('click', () => {
-      if (confirm('Are you sure you want to remove this player?')) {
+      if (confirm('Are you sure you want to remove this team?')) {
         this.adapter.destroyTeam(this.id).then(() => {
           const team = document.getElementById(`team${this.id}-item`)
           team.parentNode.removeChild(team)

@@ -1,4 +1,4 @@
-class Event { // this class renders events and it's players
+class Event { // this class renders events, it's players and it's update/delete functions
   constructor (eventJSON) {
     this.id = eventJSON.id
     this.name = eventJSON.name

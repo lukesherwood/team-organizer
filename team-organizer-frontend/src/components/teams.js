@@ -1,5 +1,5 @@
 /* eslint-disable semi */
-class Teams {
+class Teams { // fetches teams, calls render on each team and manages team create form
   constructor () {
     this.teams = [];
     this.adapter = new TeamAdapter();
@@ -7,7 +7,8 @@ class Teams {
     this.loadTeams();
   }
 
-  loadTeams () { // fetches teams from database and adds each to teams array, then calls renderTeam
+  // fetching and rendering each team
+  loadTeams () {
     this.adapter
       .getTeams()
       .then((object) => {
@@ -24,6 +25,8 @@ class Teams {
     });
   }
 
+  // event listeners
+
   eventListenerAndBindings () { // listening for click on create team button
     this.createTeamButton = document.getElementById('create-team-button')
     this.createTeamButton.addEventListener('click', () => {
@@ -38,6 +41,8 @@ class Teams {
       this.teamFormContainer.innerHTML = ''
     })
   }
+
+  // create team form functions
 
   renderCreateTeamForm () {
     this.teamFormContainer = document.getElementById('form-container')

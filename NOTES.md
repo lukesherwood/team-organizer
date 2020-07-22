@@ -1,6 +1,7 @@
 #NOTES
 
 ##Do Next
+why doesnt events use the same logic as teams and render each event -- because team does that.
 swap button order
 .catch errors for fetch requests and error handling
 blog post
