@@ -58,5 +58,5 @@ class Team { // renders each team and calls create events.
   //       })
   //     }
   //   })
-  }
+  // }
 }

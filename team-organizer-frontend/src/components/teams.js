@@ -35,14 +35,21 @@ class Teams { // fetches teams, calls render on each team and manages team creat
     this.createTeamButton = document.getElementById('create-team-button')
     this.createTeamButton.addEventListener('click', () => {
       this.renderCreateTeamForm()
-      this.createFormSubmitListener()
+      this.createFormCloseListener()
+    })
+  }
+
+  createFormCloseListener () {
+    const closeTeamFormButton = document.getElementById('close-team-create-form')
+    closeTeamFormButton.addEventListener('click', () => {
+      this.teamFormContainer.innerHTML = ''
     })
   }
 
   createFormSubmitListener () {
-    const closeTeamFormButton = document.getElementById('close-team-create-form')
-    closeTeamFormButton.addEventListener('click', () => {
-      this.teamFormContainer.innerHTML = ''
+    this.createTeamForm.addEventListener('submit', (event) => {
+      event.preventDefault()
+      this.processCreateTeamForm()
     })
   }
 
@@ -52,10 +59,7 @@ class Teams { // fetches teams, calls render on each team and manages team creat
     this.teamFormContainer = document.getElementById('form-container')
     this.teamFormContainer.innerHTML = this.renderCreateHtml()
     this.createTeamForm = document.getElementById('create-team-form')
-    this.createTeamForm.addEventListener('submit', (event) => {
-      event.preventDefault()
-      this.processCreateTeamForm()
-    })
+    this.createFormSubmitListener()
   }
 
   processCreateTeamForm () {
