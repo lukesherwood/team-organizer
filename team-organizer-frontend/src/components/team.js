@@ -39,24 +39,24 @@ class Team { // renders each team and calls create events.
     });
   }
 
-  renderDeleteButton () { // this is for delete button which is currently disabled until user log in completed
-    const buttonContainer = document.createElement('div')
-    buttonContainer.id = `team${this.id}-delete-button-div`
-    buttonContainer.className = 'float-right'
-    buttonContainer.innerHTML = `<button class='delete-team-button btn btn-outline-danger btn-sm' id="team-${this.id}delete-event-button">Delete</button>`
-    const team = document.getElementById(`team${this.id}-title`)
-    team.appendChild(buttonContainer)
-  }
+  // renderDeleteButton () { // this is for delete button which is currently disabled until user log in completed
+  //   const buttonContainer = document.createElement('div')
+  //   buttonContainer.id = `team${this.id}-delete-button-div`
+  //   buttonContainer.className = 'float-right'
+  //   buttonContainer.innerHTML = `<button class='delete-team-button btn btn-outline-danger btn-sm' id="team-${this.id}delete-event-button">Delete</button>`
+  //   const team = document.getElementById(`team${this.id}-title`)
+  //   team.appendChild(buttonContainer)
+  // }
 
-  eventListenerAndBindings () { // this is for delete button which is currently disabled until user log in completed
-    const deleteButton = document.getElementById(`team-${this.id}delete-event-button`)
-    deleteButton.addEventListener('click', () => {
-      if (confirm('Are you sure you want to remove this team?')) {
-        this.adapter.destroyTeam(this.id).then(() => {
-          const team = document.getElementById(`team${this.id}-item`)
-          team.parentNode.removeChild(team)
-        })
-      }
-    })
+  // eventListenerAndBindings () { // this is for delete button which is currently disabled until user log in completed
+  //   const deleteButton = document.getElementById(`team-${this.id}delete-event-button`)
+  //   deleteButton.addEventListener('click', () => {
+  //     if (confirm('Are you sure you want to remove this team?')) {
+  //       this.adapter.destroyTeam(this.id).then(() => {
+  //         const team = document.getElementById(`team${this.id}-item`)
+  //         team.parentNode.removeChild(team)
+  //       })
+  //     }
+  //   })
   }
 }

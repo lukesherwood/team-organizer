@@ -1,11 +1,17 @@
-class Players {
+class Players { // adds listeners for add player buttons then manages the create form
   constructor (event) {
     this.adapter = new UserAdapter()
     this.eventListenerAndBindings()
     this.event = event // can we remove this and move it to player class?
   }
 
+  // Event listeners
+
   eventListenerAndBindings () {
+    this.allAddPlayerButtonsListener()
+  }
+
+  allAddPlayerButtonsListener () {
     const addPlayerButtons = document.querySelectorAll('.add-player-button')
     for (const button of addPlayerButtons) {
       button.addEventListener('click', () => {
@@ -22,15 +28,6 @@ class Players {
     }
   }
 
-  renderPlayerForm () {
-    const playersContainer = document.getElementById(`event${this.event.id}-players-container`)
-    this.playerFormContainer = document.getElementById(`event-${this.event.id}-players-form-container`) || document.createElement('div')
-    this.playerFormContainer.id = (`event-${this.event.id}-players-form-container`)
-    playersContainer.appendChild(this.playerFormContainer)
-    this.playerFormContainer.innerHTML = this.playerFormHtml()
-    this.playerFormSubmitListener()
-  }
-
   playerFormSubmitListener () {
     const playerFormSubmit = document.querySelectorAll('.player-form')
     for (const submit of playerFormSubmit) {
@@ -39,6 +36,17 @@ class Players {
         this.processPlayerForm()
       })
     }
+  }
+
+  // Player create form functions
+
+  renderPlayerForm () {
+    const playersContainer = document.getElementById(`event${this.event.id}-players-container`)
+    this.playerFormContainer = document.getElementById(`event-${this.event.id}-players-form-container`) || document.createElement('div')
+    this.playerFormContainer.id = (`event-${this.event.id}-players-form-container`)
+    playersContainer.appendChild(this.playerFormContainer)
+    this.playerFormContainer.innerHTML = this.playerFormHtml()
+    this.playerFormSubmitListener()
   }
 
   processPlayerForm () {

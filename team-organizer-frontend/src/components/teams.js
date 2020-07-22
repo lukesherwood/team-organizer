@@ -27,15 +27,19 @@ class Teams { // fetches teams, calls render on each team and manages team creat
 
   // event listeners
 
-  eventListenerAndBindings () { // listening for click on create team button
+  eventListenerAndBindings () {
+    this.createTeamButtonListener()
+  }
+
+  createTeamButtonListener () {
     this.createTeamButton = document.getElementById('create-team-button')
     this.createTeamButton.addEventListener('click', () => {
       this.renderCreateTeamForm()
-      this.createFormListener()
+      this.createFormSubmitListener()
     })
   }
 
-  createFormListener () {
+  createFormSubmitListener () {
     const closeTeamFormButton = document.getElementById('close-team-create-form')
     closeTeamFormButton.addEventListener('click', () => {
       this.teamFormContainer.innerHTML = ''

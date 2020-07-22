@@ -1,4 +1,4 @@
-class Player {
+class Player { // Renders players and manages player delete
   constructor (playerJSON, eventId) {
     this.eventId = eventId
     this.name = playerJSON.name
@@ -10,6 +10,26 @@ class Player {
     this.renderDeleteButton()
     this.eventListenerAndBindings()
   }
+
+  // Event Listeners
+
+  eventListenerAndBindings () {
+    this.deleteButtonListener()
+  }
+
+  deleteButtonListener () {
+    const deleteButton = document.getElementById(`event-${this.eventId}-player-${this.id}delete-player-button`)
+    deleteButton.addEventListener('click', () => {
+      if (confirm('Are you sure you want to remove this player?')) {
+        this.adapter.destroyPlayer(this.eventId, this.id).then(() => {
+          const player = document.getElementById(`event-${this.eventId}-player-${this.id}`)
+          player.parentNode.removeChild(player)
+        })
+      }
+    })
+  }
+
+  // render player functions
 
   renderPlayers () {
     this.playersContainer = document.getElementById(`event-${this.eventId}-players-list-container`)
@@ -24,17 +44,5 @@ class Player {
   renderDeleteButton () {
     const player = document.getElementById(`event-${this.eventId}-player-${this.id}`)
     player.innerHTML += `<button class='btn btn-outline-danger btn-sm float-right' id="event-${this.eventId}-player-${this.id}delete-player-button">X</button>`
-  }
-
-  eventListenerAndBindings () {
-    const deleteButton = document.getElementById(`event-${this.eventId}-player-${this.id}delete-player-button`)
-    deleteButton.addEventListener('click', () => {
-      if (confirm('Are you sure you want to remove this player?')) {
-        this.adapter.destroyPlayer(this.eventId, this.id).then(() => {
-          const player = document.getElementById(`event-${this.eventId}-player-${this.id}`)
-          player.parentNode.removeChild(player)
-        })
-      }
-    })
   }
 }
