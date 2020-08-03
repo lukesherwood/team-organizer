@@ -3,13 +3,12 @@ class UserAdapter {
     this.baseUrl = 'http://localhost:3000/users'
   }
 
-  createUsers (playerName, email, eventId) { // posting new user to the server
+  createUsers (playerName, email, eventId) { // posting new user to the database
     const user = {
       name: playerName,
       email: email,
       event_id: eventId
     }
-
     return fetch(this.baseUrl, {
       method: 'POST',
       headers: {

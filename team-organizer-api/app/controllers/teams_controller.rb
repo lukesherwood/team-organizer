@@ -9,7 +9,7 @@ class TeamsController < ApplicationController
         if @team
             render json: @team
         else
-            render json: {message: 'Team not found'} #this doesnt actually fire
+            render json: {message: 'Team not found'}
         end
     end
 
@@ -27,7 +27,7 @@ class TeamsController < ApplicationController
         if @team.destroy
             render body: {}, status: :no_content
         else
-            render json: {message: 'Error deleting event'} #render json: {message: 'Event not created'}
+            render json: {message: 'Error deleting event'}
         end
     end
 

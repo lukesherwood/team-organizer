@@ -9,7 +9,7 @@ class EventsController < ApplicationController
         if @event
             render json: @event
         else
-            render json: {message: 'Event not found'} #this doesnt actually fire
+            render json: {message: 'Event not found'}
         end
     end
 
@@ -20,7 +20,7 @@ class EventsController < ApplicationController
         if @event.save
             render json: @event, status: 200
         else
-            render json: {message: 'Error creating event'} #render json: {message: 'Event not created'}
+            render json: {message: 'Error creating event'}
         end
     end
 
@@ -29,7 +29,7 @@ class EventsController < ApplicationController
         if @event.destroy
             render body: {}, status: :no_content
         else
-            render json: {message: 'Error deleting event'} #render json: {message: 'Event not created'}
+            render json: {message: 'Error deleting event'}
         end
     end
 
