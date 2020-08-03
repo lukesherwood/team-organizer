@@ -1,12 +1,11 @@
 #NOTES
 
-##Do Next
-why doesnt events use the same logic as teams and render each event -- because team does that.
-swap button order
-.catch errors for fetch requests and error handling
-blog post
-video walk-through
-
+##Errors
+make forms modal using bootstrap
+when small buttons should be below title
+update date of event seems to not render on DOM?
+install moment JS for time functions
+deploy to heroku
 
 ##APP TASKS
 - A team page for each team

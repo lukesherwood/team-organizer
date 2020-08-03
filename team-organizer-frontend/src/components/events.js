@@ -50,8 +50,8 @@ class Events { // this class handles the create event form
   }
 
   CreateEventFormHtml () {
-    return `
-    <div class="card">
+    return (
+    `<div class="card">
     <h4 class="card-header text-white" style="background-color: #266563; opacity: 75%; padding: 2px;">Create a New Event
     <button class='btn btn-danger' style='float:right;' id="close-event-create-form">Close</button></h4>
     <div class="card-body">
@@ -85,8 +85,8 @@ class Events { // this class handles the create event form
     <input type="submit" id='create-event-submit' class="btn btn-outline-primary mb-2" value="Submit">
     </form>
     </div>
-    </div>
-    `
+    </div>`
+    )
   }
 
   // Process create form functions

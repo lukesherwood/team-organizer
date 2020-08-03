@@ -79,18 +79,14 @@ class Event { // this class renders events, it's players and it's update/delete 
 
   convertDateTime (date) {
     function pad (n) {
-      if (n === 3) { // ternary here?
+      if (n === 3) {
         return n + '0'
       } else {
         return n < 10 ? '0' + n : n
       }
     }
     function convertHours (hour) {
-      if (hour < 12) { // ternary here?
-        return hour + 12
-      } else {
-        return hour - 12
-      }
+      return hour < 12 ? hour + 12 : hour - 12
     }
     const currentDate = new Date(date)
     const hours = currentDate.getHours()

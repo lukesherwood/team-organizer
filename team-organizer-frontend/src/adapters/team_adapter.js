@@ -1,20 +1,18 @@
 class TeamAdapter {
   constructor () {
     this.baseUrl = 'http://localhost:3000/teams'
-    this.eventsUrl = 'http://localhost:3000/events' // should create own adaptor for events?
   }
 
-  getTeams () {
+  getTeams () { // getting all teams from database
     return fetch(this.baseUrl)
       .then((response) => response.json())
   }
 
-  createTeam (teamName, teamDesc) { // posting new team to the server
+  createTeam (teamName, teamDesc) { // posting new team to the database
     const team = {
       name: teamName,
       description: teamDesc
     }
-
     return fetch(this.baseUrl, {
       method: 'POST',
       headers: {
@@ -27,7 +25,7 @@ class TeamAdapter {
       })
   }
 
-  destroyTeam (teamId) {
+  destroyTeam (teamId) { // deleting team from database
     const team = {
       id: teamId
     }
