@@ -1,9 +1,11 @@
 #NOTES
 
 ##Errors
+welcome message at the top of page
 make forms modal using bootstrap
 when small buttons should be below title
 update date of event seems to not render on DOM?
+remove borders from some cards?
 install moment JS for time functions
 deploy to heroku
 

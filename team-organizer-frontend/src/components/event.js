@@ -47,7 +47,7 @@ class Event { // this class renders events, it's players and it's update/delete 
     this.eventLink = document.createElement('li')
     this.eventLink.id = `event${this.id}-div`
     this.eventLink.innerHTML = `<h5 class='card-title' id='event${this.id}-title'>${this.name}</h5>`
-    this.eventLink.className = 'card-body'
+    this.eventLink.className = `${this.team.id}-item card-body`
     team.appendChild(cardDiv)
     cardDiv.appendChild(this.eventLink)
   }
