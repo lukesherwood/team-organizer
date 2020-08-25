@@ -33,6 +33,12 @@ class Team { // renders each team and calls create events.
     </div>`
   }
 
+  createEvents (events) {
+    events.forEach((event) => {
+      this.events.push(new Event(event));
+    });
+  }
+
   // renderDeleteButton () { // this is for delete button which is currently disabled until user log in completed
   //   const buttonContainer = document.createElement('div')
   //   buttonContainer.id = `team${this.id}-delete-button-div`
