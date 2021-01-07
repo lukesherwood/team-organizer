@@ -6,6 +6,7 @@ for a game of sport. Users can freely a create team and a game, invite their fri
 To further increase utility I aim to implement email notifications for changes to the event i.e. if the event changes time, and also add a way to add a reoccurring event.
 
 Built with Ruby on Rails, Vanilla Javascript and Bootstrap
+![Demo](https://i.imgur.com/ypKEUHc.gif)
 
 * Clone the repo
 
